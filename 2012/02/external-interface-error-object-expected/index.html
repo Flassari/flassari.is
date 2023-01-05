@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="The works and thoughts of a game programmer">
+
+<title>Flassari.is  &raquo; External Interface error: Object expected</title>
+
+<link rel="stylesheet" href="/wp-content/themes/flassari/style.css" type="text/css" media="screen">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/swfobject.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shCore.css">
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shThemeDefault.css">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shCore.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushAS3.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushXml.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushPhp.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushCpp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"httpsflassari.is\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.8.6" type="text/css" media="all">
+<meta name="generator" content="WordPress 5.8.6">
+<link rel="canonical" href="/2012/02/external-interface-error-object-expected/">
+<link rel="shortlink" href="/?p=480">
+<script type="text/javascript" src="/wp-includes/js/tw-sack.min.js?ver=1.6.1" id="sack-js"></script>
+</head>
+<body>
+
+
+<div id="page">
+<div id="header">
+	<a href="/"><h1>Flassari.is</h1></a>
+</div>
+<hr>
+
+
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="/2012/01/showing-static-variables-in-the-flash-builder-4-5-debugger/" rel="prev">Showing static variables in the Flash Builder 4.5 debugger</a>
+</div>
+			<div class="alignright">
+<a href="/2012/04/throwing-an-error-in-a-constructor-before-the-super-statement/" rel="next">Throwing an error in a constructor before the super() statement</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-480">
+			<h2>External Interface error: Object expected</h2>
+
+			<div class="entry">
+				<p>It&#8217;s taken me a while to figure this one out. I have a <a href="http://facebook.angrybirds.com/" target="_blank">flash game on facebook</a> that uses Stage3D, so window mode has to be set to &#8220;direct&#8221; which means that any time facebook wants to overlay some elements on the page they appear under the game on many browsers.</p>
+<p>Facebook has a solution for you, on FB.init you can set your own callback function via the hideFlashCallback parameter. In this callback you <a href="http://developers.facebook.com/blog/post/637/" target="_blank">can move the flash object out of view</a> by, for example, setting the top to be -10000px whenever a Facebook dialog is opened and then putting it back when the dialog is closed.</p>
+<p>I had functions registered with external interface to pause and resume the game that would get called via javascript in the hideFlashCallback callback.</p>
+<p>This was working well enough but for some reason on Internet Explorer I couldn&#8217;t call the resume() function just after showing the flash object, instead I got an &#8220;Object Expected&#8221; error.</p>
+<p>Internet Explorer does not support calling external interface methods for flash objects if they are not visible. Since it could be a race condition (DOM might not render the flash object before the function was called) I added a 100ms delay to the call to resume(), only for IE. This seemed to work fine.</p>
+<p>But once we got close to production this error re-appeared, but only when Facebook&#8217;s purchase dialog had been shown. Weird! No amount of delay made the external interface calls work again. If I showed the purchase dialog once and closed it, it would be no longer possible to call any external interface functions for the flash object until a page refresh. This was not acceptable.</p>
+<p>After a lot of debugging, I noticed that even though we have registered for the hideFlashCallback function, facebook STILL sets the visibility of the flash object to &#8220;hidden&#8221; after 200ms.</p>
+<p>As can be seen in <a href="https://developers.facebook.com/docs/reference/javascript/#hide_flash_callback" target="_blank">Facebook&#8217;s documentation</a>: &#8220;The custom action must complete within 200ms or the Flash object will be hidden automatically regardless.&#8221;</p>
+<p>Apparently the fact that we&#8217;re changing the visibility of the flash object along with whatever facebook does differently during the purchase dialog (overlay a white div over the whole page) breaks all external interface functionality.</p>
+<p>This has a simple fix though, create a higher priority CSS rule that makes the flash object always visible:</p>
+<pre class="brush: xml"><style>#MyFlashObjectID {
+    visibility: visible !important;
+}</style></pre>
+<p>It doesn&#8217;t need to be hidden since we are moving it out of view ourselves anyways.</p>
+
+								<p>Tags: <a href="/tag/css/" rel="tag">CSS</a>, <a href="/tag/error/" rel="tag">error</a>, <a href="/tag/external-interface/" rel="tag">external interface</a>, <a href="/tag/facebook/" rel="tag">facebook</a>, <a href="/tag/fb-ui/" rel="tag">FB.ui</a>, <a href="/tag/flash/" rel="tag">Flash</a>, <a href="/tag/hideflashcallback/" rel="tag">hideFlashCallback</a>, <a href="/tag/object-expected/" rel="tag">Object expected</a>, <a href="/tag/swf/" rel="tag">swf</a>, <a href="/tag/visibility/" rel="tag">visibility</a></p>
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on Thursday, February 23rd, 2012 at 14:38						and is filed under <a href="/category/flash/" rel="category tag">Flash</a>, <a href="/category/internet-explorer/" rel="category tag">Internet Explorer</a>, <a href="/category/stage3d/" rel="category tag">Stage3D</a>.
+						<br><br>
+						The website has been archived and no new comments can be posted.
+					</small>
+				</p>
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">16 Responses to &#8220;External Interface error: Object expected&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-1296">
+			<img alt="" src="https://secure.gravatar.com/avatar/f3bb1d8f21f2d878d3233aaf2f0e543a?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/f3bb1d8f21f2d878d3233aaf2f0e543a?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Brice &amp; Antoine</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1296" title="">March 13th, 2012 at 15:18</a> </small>
+
+			<p>This is EXACTLY the description of our bug !<br>
+Thanks for the fix.</p>
+<p>You rock !</p>
+
+		</li>
+
+	
+	
+		<li id="comment-1310">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1310" title="">March 15th, 2012 at 21:19</a> </small>
+
+			<p>So glad that I could help someone out with this =)</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1368">
+			<img alt="" src="https://secure.gravatar.com/avatar/d73fffea48142029ea59a5258f8b2722?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/d73fffea48142029ea59a5258f8b2722?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.memirgames.com/" rel="external nofollow ugc" class="url">Brandon</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1368" title="">March 28th, 2012 at 00:12</a> </small>
+
+			<p>I have this exact problem, however this fix isn&#8217;t working for some reason. Is it possible to get a copy of the javascript source, for setting the flash object to visibility: visible !important;</p>
+
+		</li>
+
+	
+	
+		<li id="comment-1369">
+			<img alt="" src="https://secure.gravatar.com/avatar/d73fffea48142029ea59a5258f8b2722?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/d73fffea48142029ea59a5258f8b2722?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.memirgames.com/" rel="external nofollow ugc" class="url">Brandon</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1369" title="">March 28th, 2012 at 01:11</a> </small>
+
+			<p>I actually think my problem is different as even if I don&#8217;t have any external interface methods I get a problem with losing the flash object.</p>
+<p>I use the following FB.Init&#8230;&#8230;&#8230;&#8230;&#8230;..</p>
+<p>      FB.init({<br>
+        appId  : &#8216;MY_APP_ID&#8217;,<br>
+        hideFlashCallback : onFlashHide<br>
+       });</p>
+<p>even when I make the callback function onFlashHide do nothing&#8230; the flash object is still lost when someone PMs and I close their PM box. </p>
+<p>I notice that the flash object is still present, as if I right mouse click on the area it brings up the flash menu, it just isn&#8217;t drawing / rendering for some reason.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1372">
+			<img alt="" src="https://secure.gravatar.com/avatar/755d4efb39aff765c3e92c68c296608a?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/755d4efb39aff765c3e92c68c296608a?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.memirgames.com/" rel="external nofollow ugc" class="url">Brandon</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1372" title="">March 28th, 2012 at 23:49</a> </small>
+
+			<p>I got this fixed.. I wasn&#8217;t using the correct Flash Object ID for the CSS Code. Once I used the correct Object ID, everything worked fine. Thank you for the following code :)</p>
+<p>#MyFlashObjectID {</p>
+<p>visibility: visible !important;</p>
+<p>}</p>
+
+		</li>
+
+	
+	
+		<li id="comment-1482">
+			<img alt="" src="https://secure.gravatar.com/avatar/6720929c5ab1a85c6d901dfa879a0ad7?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/6720929c5ab1a85c6d901dfa879a0ad7?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Bach Le</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1482" title="">May 9th, 2012 at 10:50</a> </small>
+
+			<p>I am eternally indebted to you. Thank you very much for sharing your fix.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1483">
+			<img alt="" src="https://secure.gravatar.com/avatar/e38938d0ec5aafde0758eefd8eca38e7?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/e38938d0ec5aafde0758eefd8eca38e7?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.milkisevil.com/" rel="external nofollow ugc" class="url">Philip</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1483" title="">May 9th, 2012 at 13:29</a> </small>
+
+			<p>great fyi&#8230; mental note created &#8211; thanks! :)</p>
+
+		</li>
+
+	
+	
+		<li id="comment-1735">
+			<img alt="" src="https://secure.gravatar.com/avatar/b40273f2a0d78ea6c271e8d41e258336?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/b40273f2a0d78ea6c271e8d41e258336?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>ahh</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1735" title="">July 27th, 2012 at 02:59</a> </small>
+
+			<p>Youre my hero. Oh my god. After 5 hours of debugging!</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1743">
+			<img alt="" src="https://secure.gravatar.com/avatar/23748ea0f4a291df7a6242b9f73569b5?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/23748ea0f4a291df7a6242b9f73569b5?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>DFreeman</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1743" title="">August 3rd, 2012 at 16:10</a> </small>
+
+			<p>Oh God, THANK YOU!<br>
+I&#8217;ve spent a week on this problem. From thinking it was facebook javascript api, to swfobject to just IE8, I&#8217;ve read hundreds of pages with proposed solutions and you are the only person with not only the EXACT problem but a solution!!!<br>
+/internet hug</p>
+
+		</li>
+
+	
+	
+		<li id="comment-1770">
+			<img alt="" src="https://secure.gravatar.com/avatar/e5ad6571134a4fea56d76b7a83fb2114?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/e5ad6571134a4fea56d76b7a83fb2114?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>PC</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1770" title="">August 22nd, 2012 at 16:06</a> </small>
+
+			<p>Exactly what I was looking for! Thanks!</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1799">
+			<img alt="" src="https://secure.gravatar.com/avatar/34a198446062d22b0cc2ec615030f636?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/34a198446062d22b0cc2ec615030f636?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>khris</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1799" title="">September 11th, 2012 at 13:36</a> </small>
+
+			<p>OMG, I love you and your article even than double cheese burger.</p>
+
+		</li>
+
+	
+	
+		<li id="comment-2578">
+			<img alt="" src="https://secure.gravatar.com/avatar/e284066910f3f0f9c986535387011903?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/e284066910f3f0f9c986535387011903?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Marek</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-2578" title="">March 19th, 2013 at 08:49</a> </small>
+
+			<p>You saved me a day! Thx a lot.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-3572">
+			<img alt="" src="https://secure.gravatar.com/avatar/eb5021f66ea853f2a750f737b5f517da?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/eb5021f66ea853f2a750f737b5f517da?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Fahim</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-3572" title="">May 21st, 2013 at 12:51</a> </small>
+
+			<p>I&#8217;ve got the same issue, I&#8217;ve implemented the whole fb take image thing and it&#8217;s working perfectly fine. The issue is thought the callback function is never called. I&#8217;ve got an alert there but it&#8217;s never called (chrome) </p>
+<p>If I remove the function from FB.init my game disappear when I click on notifications but when I put in the function. The function isn&#8217;t called and nothing happens. </p>
+<p>Any clues?</p>
+
+		</li>
+
+	
+	
+		<li id="comment-4702">
+			<img alt="" src="https://secure.gravatar.com/avatar/680cf22e00a5a79efccec7872893d145?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/680cf22e00a5a79efccec7872893d145?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="https://www.kattnergames.com/" rel="external nofollow ugc" class="url">Jakob</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-4702" title="">August 7th, 2013 at 16:48</a> </small>
+
+			<p>For those who do not understand what he meant by creating a high priority css rule and need an example, here you go:<br>
+His suggestion-<br>
+#MyFlashObjectID {<br>
+visibility: visible !important;<br>
+}</p>
+<p>My interpretation-<br>
+head<br>
+style type=&#8221;text/css&#8221;<br>
+	 /*below is where you place the visibility code*/<br>
+           #flashContent {<br>
+		visibility: visible !important;<br>
+	   }<br>
+ /style<br>
+ /head<br>
+        /*sorry it wouldn&#8217;t let me add a lot of detail on this*/</p>
+<p>I hope this helps those who may still be lost.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-4997">
+			<img alt="" src="https://secure.gravatar.com/avatar/36c510dfe3bdb646166439fcae3a9bc7?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/36c510dfe3bdb646166439fcae3a9bc7?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Ami</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-4997" title="">August 28th, 2013 at 18:48</a> </small>
+
+			<p>amazing. this was the save of the month :)<br>
+spot on!</p>
+
+		</li>
+
+	
+	
+		<li id="comment-5543">
+			<img alt="" src="https://secure.gravatar.com/avatar/ed5722e576f44c5c7ad39aad219ff0e6?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/ed5722e576f44c5c7ad39aad219ff0e6?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>luis</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-5543" title="">October 10th, 2013 at 06:21</a> </small>
+
+			<p>You save me THANKS!!!!!!!!!</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+	
+	</div>
+
+<hr>
+<div id="footer">
+</div>
+</div>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js?ver=5.8.6" id="wp-embed-js"></script>
+</body>
+</html>

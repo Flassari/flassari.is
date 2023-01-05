@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="The works and thoughts of a game programmer">
+
+<title>Flassari.is  &raquo; AS3 &#8220;with&#8221; keyword and casting</title>
+
+<link rel="stylesheet" href="/wp-content/themes/flassari/style.css" type="text/css" media="screen">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/swfobject.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shCore.css">
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shThemeDefault.css">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shCore.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushAS3.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushXml.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushPhp.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushCpp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"httpsflassari.is\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.8.6" type="text/css" media="all">
+<meta name="generator" content="WordPress 5.8.6">
+<link rel="canonical" href="/2010/07/as3-with-keyword-and-casting/">
+<link rel="shortlink" href="/?p=321">
+<script type="text/javascript" src="/wp-includes/js/tw-sack.min.js?ver=1.6.1" id="sack-js"></script>
+</head>
+<body>
+
+
+<div id="page">
+<div id="header">
+	<a href="/"><h1>Flassari.is</h1></a>
+</div>
+<hr>
+
+
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="/2010/06/global-error-handling-with-flash-player-10-1/" rel="prev">Global error handling with Flash Player 10.1</a>
+</div>
+			<div class="alignright">
+<a href="/2010/07/re-dispatch-an-event/" rel="next">Re-dispatch an event</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-321">
+			<h2>AS3 &#8220;with&#8221; keyword and casting</h2>
+
+			<div class="entry">
+				<p>I&#8217;ve rarely (if ever) used the <a href="http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/statements.html#with">&#8220;with&#8221; keyword</a> in as3, but I recently found a neat trick to use it with.</p>
+<p>When I quickly need to cast an object to access a few methods/properties I don&#8217;t always want to<br>
+create a new casted variable:</p>
+<pre class="brush: as3">var child:DisplayObject = getChildThatMightBeMovieClip();
+
+if (child is MovieClip) {
+	var childAsMc:MovieClip = child as MovieClip;
+	trace(childAsMc.numChildren);
+	trace(childAsMc.currentFrame);
+}</pre>
+<p>or cast it every single time:</p>
+<pre class="brush: as3">var child:DisplayObject = getChildThatMightBeMovieClip();
+
+if (child is MovieClip) {
+	trace((child as MovieClip).numChildren);
+	trace((child as MovieClip).currentFrame);
+}</pre>
+<p>Using the &#8220;with&#8221; keyword, we can temporarily cast it without creating a temporary casted variable or casting it again and again:</p>
+<pre class="brush: as3">var child:DisplayObject = getChildThatMightBeMovieClip();
+
+if (child is MovieClip) {
+	with (child as MovieClip) {
+		trace(numChildren);
+		trace(currentFrame);
+	}
+}</pre>
+<p>Elegant =)</p>
+
+								<p>Tags: <a href="/tag/as/" rel="tag">as</a>, <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/cast/" rel="tag">cast</a>, <a href="/tag/casting/" rel="tag">casting</a>, <a href="/tag/keyword/" rel="tag">keyword</a>, <a href="/tag/with/" rel="tag">with</a></p>
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on Monday, July 12th, 2010 at 13:40						and is filed under <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a>.
+						<br><br>
+						The website has been archived and no new comments can be posted.
+					</small>
+				</p>
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">7 Responses to &#8220;AS3 &#8220;with&#8221; keyword and casting&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-970">
+			<img alt="" src="https://secure.gravatar.com/avatar/75a5fdba1a164425d43d3b9c4b830287?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/75a5fdba1a164425d43d3b9c4b830287?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>jooj</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-970" title="">December 16th, 2011 at 08:51</a> </small>
+
+			<p>Simpler:</p>
+<p>var child:MovieClip = getChildThatMightBeMovieClip() as MovieClip;</p>
+<p>if (child) {<br>
+    &#8230;<br>
+}</p>
+
+		</li>
+
+	
+	
+		<li id="comment-1234">
+			<img alt="" src="https://secure.gravatar.com/avatar/d89d81f673dac06b16cade5b4bf19954?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/d89d81f673dac06b16cade5b4bf19954?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://blog.mshams.ir/" rel="external nofollow ugc" class="url">SHAMS</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1234" title="">March 3rd, 2012 at 05:08</a> </small>
+
+			<p>Thanks<br>
+I usually use nested &#8220;with&#8221;, for my object arrays.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1266">
+			<img alt="" src="https://secure.gravatar.com/avatar/ffea9ef99ba77f7c53d1eab2651afda0?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/ffea9ef99ba77f7c53d1eab2651afda0?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.ashishyeole.wordpress.com/" rel="external nofollow ugc" class="url">Ashish</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1266" title="">March 8th, 2012 at 17:51</a> </small>
+
+			<p>Thanks for the post.</p>
+<p>@jooj </p>
+<p>checking if (child) wont guarantee whether its a a movie clip or not.<br>
+and hence  </p>
+<p>var child:DisplayObject = getChildThatMightBeMovieClip();</p>
+<p>if (child is MovieClip) {<br>
+with (child as MovieClip) {<br>
+trace(numChildren);<br>
+trace(currentFrame);<br>
+}<br>
+}</p>
+<p>stands out&#8230;.</p>
+
+		</li>
+
+	
+	
+		<li id="comment-1549">
+			<img alt="" src="https://secure.gravatar.com/avatar/bc9ce07bb594d1db3211b4d67e4f8565?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/bc9ce07bb594d1db3211b4d67e4f8565?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>beatless</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1549" title="">May 29th, 2012 at 01:53</a> </small>
+
+			<p>thank you for sharing.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1702">
+			<img alt="" src="https://secure.gravatar.com/avatar/48f6832d9cc5f21abb29a68c111db7cf?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/48f6832d9cc5f21abb29a68c111db7cf?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Pratibha</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1702" title="">July 19th, 2012 at 10:43</a> </small>
+
+			<p>its good</p>
+
+		</li>
+
+	
+	
+		<li id="comment-4194">
+			<img alt="" src="https://secure.gravatar.com/avatar/c5776136e99522424ad5bc02086f6e09?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/c5776136e99522424ad5bc02086f6e09?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>John</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-4194" title="">July 1st, 2013 at 19:37</a> </small>
+
+			<p>Question: Does this improve speed of execution over casting over and over, and does this improve memory usage over creating a temporary variable?</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-4652">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-4652" title="">August 4th, 2013 at 09:59</a> </small>
+
+			<p>This is very likely slower, and I actually recommend using the &#8220;as&#8221; keyword instead if you want a more proper way of checking this since it&#8217;s faster, has compile-time checking of properties and it returns null if the child isn&#8217;t moveclip:</p>
+<pre class="brush: as3">
+var mc:MovieClip = getChildThatMightBeMovieClip() as MovieClip;
+ 
+if (mc) {
+	trace(mc.numChildren);
+	trace(mc.currentFrame);
+}
+</pre>
+<p>The use case that I posted might not be the best way of handling it, I only posted it as an example =)</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+	
+	</div>
+
+<hr>
+<div id="footer">
+</div>
+</div>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js?ver=5.8.6" id="wp-embed-js"></script>
+</body>
+</html>

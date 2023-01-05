@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="The works and thoughts of a game programmer">
+
+<title>Flassari.is  &raquo; Line-Line Intersection in AS3</title>
+
+<link rel="stylesheet" href="/wp-content/themes/flassari/style.css" type="text/css" media="screen">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/swfobject.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shCore.css">
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shThemeDefault.css">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shCore.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushAS3.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushXml.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushPhp.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushCpp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"httpsflassari.is\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.8.6" type="text/css" media="all">
+<meta name="generator" content="WordPress 5.8.6">
+<link rel="canonical" href="/2009/04/line-line-intersection-in-as3/">
+<link rel="shortlink" href="/?p=104">
+<script type="text/javascript" src="/wp-includes/js/tw-sack.min.js?ver=1.6.1" id="sack-js"></script>
+</head>
+<body>
+
+
+<div id="page">
+<div id="header">
+	<a href="/"><h1>Flassari.is</h1></a>
+</div>
+<hr>
+
+
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="/2009/04/flash-player-10-penetration-at-75-point-3-percent/" rel="prev">Flash Player 10 penetration at 75.3%</a>
+</div>
+			<div class="alignright">
+<a href="/2009/05/load-font-dynamically-on-runtime/" rel="next">Load font dynamically on runtime</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-104">
+			<h2>Line-Line Intersection in AS3</h2>
+
+			<div class="entry">
+				<p></p>
+<center><img loading="lazy" src="/wp-content/uploads/2008/11/linesect.png" alt="Line line intersection function explanation" title="linesect" width="259" height="134" class="size-full wp-image-71"></center>
+<p>I found a bug in my old <a href="/2008/11/line-line-intersection-in-cplusplus/">Line-Line Intersection in C++ post</a>, and after I fixed it I thought it would be a good idea to port it to AS3:</p>
+<pre class="brush: as">function intersection(p1:Point, p2:Point, p3:Point, p4:Point):Point {
+    var x1:Number = p1.x, x2:Number = p2.x, x3:Number = p3.x, x4:Number = p4.x;
+    var y1:Number = p1.y, y2:Number = p2.y, y3:Number = p3.y, y4:Number = p4.y;
+	var z1:Number= (x1 -x2), z2:Number = (x3 - x4), z3:Number = (y1 - y2), z4:Number = (y3 - y4);
+    var d:Number = z1 * z4 - z3 * z2;
+	
+    // If d is zero, there is no intersection
+    if (d == 0) return null;
+
+	// Get the x and y
+    var pre:Number = (x1*y2 - y1*x2), post:Number = (x3*y4 - y3*x4);
+    var x:Number = ( pre * z2 - z1 * post ) / d;
+    var y:Number = ( pre * z4 - z3 * post ) / d;
+    
+    // Check if the x and y coordinates are within both lines
+    if ( x < Math.min(x1, x2) || x > Math.max(x1, x2) ||
+        x < Math.min(x3, x4) || x > Math.max(x3, x4) ) return null;
+    if ( y < Math.min(y1, y2) || y > Math.max(y1, y2) ||
+        y < Math.min(y3, y4) || y > Math.max(y3, y4) ) return null;
+ 
+    // Return the point of intersection
+    return new Point(x, y);
+}</pre>
+<p>You can try it here:<br>
+</p>
+<center><object id="myId" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="300" height="180"><param name="movie" value="/wp-content/uploads/2009/04/lineline.swf">
+<!--[if !IE]>--><object type="application/x-shockwave-flash" data="/wp-content/uploads/2009/04/lineline.swf" width="300" height="180"><!--<![endif]-->
+<div>
+<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"></a></p>
+</div>
+<p><!--[if !IE]>--></p></object><!--<![endif]--></object></center>
+
+								
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on Tuesday, April 28th, 2009 at 15:34						and is filed under <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a>, <a href="/category/math/" rel="category tag">Math</a>.
+						<br><br>
+						The website has been archived and no new comments can be posted.
+					</small>
+				</p>
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">8 Responses to &#8220;Line-Line Intersection in AS3&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-47">
+			<img alt="" src="https://secure.gravatar.com/avatar/f67fc15e4fcc00767c80cd79b0b38c12?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/f67fc15e4fcc00767c80cd79b0b38c12?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.shiphorns.com/" rel="external nofollow ugc" class="url">Adam</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-47" title="">July 13th, 2009 at 20:11</a> </small>
+
+			<p>Before using this for something like collision detection in a game, you will want to expand your analysis for the cases where your determinant is zero. A zero determinant (d==0) tells you there is no UNIQUE point of intersection between the lines passing through your points. The lines are either parallel or collinear. But&#8230; your function is not a line-line intersection function, it&#8217;s really a line segment intersection function, so there are more cases to breakdown when d==0:</p>
+<p>You could have a valid intersection if the line segments are collinear and share a point. Consider the simple case where all 4 points are on the same line, and the segments share an endpoint. Your function will return null, but it really should return the intersection point (the common endpoint). Ditto for the completely degenerate case where p1==p2==p3==p4.</p>
+<p>In the case where your segments are collinear and overlap by more than an endpoint, the most correct thing to do would be to return the segment that represents the intersection. This will require a more general return type (a segment type, i.e. two points).</p>
+
+		</li>
+
+	
+	
+		<li id="comment-48">
+			<img alt="" src="https://secure.gravatar.com/avatar/93dbc229b15534ce4e1eaf90ae618081?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/93dbc229b15534ce4e1eaf90ae618081?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>john</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-48" title="">December 10th, 2010 at 20:13</a> </small>
+
+			<p>over 1 1/2 years&#8230; THANKS! this is a really fast function, It out performs Keith Hairs version which i was currently using.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-49">
+			<img alt="" src="https://secure.gravatar.com/avatar/bf16a0f65c56a69f85f5f602dd28592a?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/bf16a0f65c56a69f85f5f602dd28592a?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Robbe</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-49" title="">March 5th, 2011 at 10:19</a> </small>
+
+			<p>Thanks! This will really come in handy.<br>
+(and also thanks john for pointing out the performance thingy, because I was about to go and test it myself :o)</p>
+
+		</li>
+
+	
+	
+		<li id="comment-510">
+			<img alt="" src="https://secure.gravatar.com/avatar/776ee3a5e34f5cf8931348e2d2fc450b?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/776ee3a5e34f5cf8931348e2d2fc450b?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.cristalab.com/" rel="external nofollow ugc" class="url">Lucas</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-510" title="">October 10th, 2011 at 23:05</a> </small>
+
+			<p>I create framework with this code, and i have problem to specific coors:</p>
+<p>var r:GRectangle = new GRectangle(475.5, 468.05, 475.5 + 52.39999999999998, 468.05 + 57.099999999999966);<br>
+var pA:GPoint = new GPoint(183, 504);<br>
+var pB:GPoint = new GPoint(883, 504);<br>
+trace(r.intersectsLinePoints(pA, pB)); // return FALSE</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-513">
+			<img alt="" src="https://secure.gravatar.com/avatar/776ee3a5e34f5cf8931348e2d2fc450b?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/776ee3a5e34f5cf8931348e2d2fc450b?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.cristalab.com/" rel="external nofollow ugc" class="url">Lucas</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-513" title="">October 11th, 2011 at 05:50</a> </small>
+
+			<p>trace(new GLine(475.5, 468.05, 475.5, 468.05 + 57.099999999999966).intersectsLinePoints(pA, pB)); // this return null</p>
+
+		</li>
+
+	
+	
+		<li id="comment-514">
+			<img alt="" src="https://secure.gravatar.com/avatar/776ee3a5e34f5cf8931348e2d2fc450b?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/776ee3a5e34f5cf8931348e2d2fc450b?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.cristalab.com/" rel="external nofollow ugc" class="url">Lucas</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-514" title="">October 11th, 2011 at 05:55</a> </small>
+
+			<p>if you use int instead of number works well =)</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-980">
+			<img alt="" src="https://secure.gravatar.com/avatar/91c957d37a2d80306212f1d14ae5eb71?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/91c957d37a2d80306212f1d14ae5eb71?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Michael</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-980" title="">December 17th, 2011 at 21:07</a> </small>
+
+			<p>Sorry, your code doesn&#8217;t work.</p>
+<p>// this will give null<br>
+var p1= new Point(x=343.4729858398438, y=351.9473937988281);<br>
+var p2= new Point(x=628.6473937988281, y=351.9473937988281);<br>
+var p3= new Point(x=486.06018981933596, y=494.5345977783203);<br>
+var p4= new Point(x=486.06018981933596, y=209.36018981933594);<br>
+trace (intersection(p1,p2,p3,p4)); </p>
+<p>// but this will draw two intersecting lines<br>
+graphics.lineStyle(1);<br>
+graphics.moveTo(p1.x,p1.y);<br>
+graphics.lineTo(p2.x,p2.y);<br>
+graphics.moveTo(p3.x,p3.y);<br>
+graphics.lineTo(p4.x,p4.y);</p>
+
+		</li>
+
+	
+	
+		<li id="comment-981">
+			<img alt="" src="https://secure.gravatar.com/avatar/91c957d37a2d80306212f1d14ae5eb71?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/91c957d37a2d80306212f1d14ae5eb71?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Michael</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-981" title="">December 17th, 2011 at 21:18</a> </small>
+
+			<p>Just wanted to add that i have tried Keith Hairs code and it seems to work much better:<br>
+<a href="http://keith-hair.net/blog/2008/08/04/find-intersection-point-of-two-lines-in-as3/" rel="nofollow ugc">http://keith-hair.net/blog/2008/08/04/find-intersection-point-of-two-lines-in-as3/</a></p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+	
+	</div>
+
+<hr>
+<div id="footer">
+</div>
+</div>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js?ver=5.8.6" id="wp-embed-js"></script>
+</body>
+</html>
