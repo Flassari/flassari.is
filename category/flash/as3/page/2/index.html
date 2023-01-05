@@ -1,0 +1,539 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="The works and thoughts of a game programmer">
+
+<title>Flassari.is  &raquo; AS3</title>
+
+<link rel="stylesheet" href="/wp-content/themes/flassari/style.css" type="text/css" media="screen">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/swfobject.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shCore.css">
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shThemeDefault.css">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shCore.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushAS3.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushXml.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushPhp.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushCpp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"httpsflassari.is\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.8.6" type="text/css" media="all">
+<meta name="generator" content="WordPress 5.8.6">
+<script type="text/javascript" src="/wp-includes/js/tw-sack.min.js?ver=1.6.1" id="sack-js"></script>
+</head>
+<body>
+
+
+<div id="page">
+<div id="header">
+	<a href="/"><h1>Flassari.is</h1></a>
+</div>
+<hr>
+
+
+
+	<div id="content" class="narrowcolumn">
+
+		
+ 	   	  		<h2 class="pagetitle">Archive for the &#8216;AS3&#8217; Category</h2>
+ 	  
+
+		<div class="navigation">
+			<div class="alignleft"><a href="/category/flash/as3/page/3/">&laquo; Older Entries</a></div>
+			<div class="alignright"><a href="/category/flash/as3/">Newer Entries &raquo;</a></div>
+		</div>
+
+				<div class="post">
+				<h3 id="post-351"><a href="/2010/09/the-or-operator-in-as3/" rel="bookmark" title="Permanent Link to The OR ( || ) operator in AS3">The OR ( || ) operator in AS3</a></h3>
+				<small>Tuesday, September 21st, 2010</small>
+
+				<div class="entry">
+					<p>Here&#8217;s a quick tip: the OR operator ( || ) in AS3 does not return true if either condition evaluates to true; it returns the <strong>actual value</strong> of the first condition to evaluate to true.</p>
+<p>What does that mean? Lets try an example:<br>
+This statement:</p>
+<pre class="brush: as3">trace ( "foo" || "bar" );</pre>
+<p>will trace out the string &#8220;foo&#8221;, not &#8220;true&#8221; (in an if statement &#8220;foo&#8221; will evaluate to true).</p>
+<p>This statement:</p>
+<pre class="brush: as3">trace ( undefined || false || "bar" );</pre>
+<p>will trace out the string &#8220;bar&#8221;.</p>
+<p>If no condition evaluates to true, it will return the last condition.</p>
+<pre class="brush: as3">trace ( false || undefined || 0 || "" || NaN || null );</pre>
+<p>will trace out &#8220;null&#8221;.</p>
+<p>This can be really handy when making sure variables are not uninitialized before using them.<br>
+Check out this example:</p>
+<pre class="brush: as3">function doSomething(arr:Array, data:Object, path:String):void {
+    this.args = arr || [];
+    this.dataObject = data || {};
+    this.dataUrl = path || "http://default.url";
+}</pre>
+<p>And even sexier (thanks <a href="http://www.tyroneneill.com/">MonkeyMagiic</a>):</p>
+<pre class="brush: as3">this.args ||= [];</pre>
+				</div>
+
+				<p class="postmetadata">Tags: <a href="/tag/192/" rel="tag">||</a>, <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/conditials/" rel="tag">conditials</a>, <a href="/tag/flash/" rel="tag">Flash</a>, <a href="/tag/if/" rel="tag">if</a>, <a href="/tag/nan/" rel="tag">NaN</a>, <a href="/tag/null/" rel="tag">null</a>, <a href="/tag/operator/" rel="tag">operator</a>, <a href="/tag/or/" rel="tag">or</a>, <a href="/tag/or-operator/" rel="tag">or operator</a>, <a href="/tag/undefined/" rel="tag">undefined</a>, <a href="/tag/value/" rel="tag">value</a><br> Posted in <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a> |   <a href="/2010/09/the-or-operator-in-as3/#comments">4 Comments &#187;</a></p>
+
+			</div>
+
+				<div class="post">
+				<h3 id="post-331"><a href="/2010/07/re-dispatch-an-event/" rel="bookmark" title="Permanent Link to Re-dispatch an event">Re-dispatch an event</a></h3>
+				<small>Monday, July 19th, 2010</small>
+
+				<div class="entry">
+					<p>I just stumbled upon a sexy and simple way to forward an Event that I wanted to share with you:</p>
+<pre class="brush: as3">myEventDispatcher.addEventListener("someEvent", dispatchEvent);</pre>
+				</div>
+
+				<p class="postmetadata">Tags: <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/dispatch/" rel="tag">dispatch</a>, <a href="/tag/event/" rel="tag">event</a>, <a href="/tag/re-dispatch/" rel="tag">re-dispatch</a><br> Posted in <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a> |   <a href="/2010/07/re-dispatch-an-event/#respond">No Comments &#187;</a></p>
+
+			</div>
+
+				<div class="post">
+				<h3 id="post-321"><a href="/2010/07/as3-with-keyword-and-casting/" rel="bookmark" title="Permanent Link to AS3 &#8220;with&#8221; keyword and casting">AS3 &#8220;with&#8221; keyword and casting</a></h3>
+				<small>Monday, July 12th, 2010</small>
+
+				<div class="entry">
+					<p>I&#8217;ve rarely (if ever) used the <a href="http://www.adobe.com/livedocs/flash/9.0/ActionScriptLangRefV3/statements.html#with">&#8220;with&#8221; keyword</a> in as3, but I recently found a neat trick to use it with.</p>
+<p>When I quickly need to cast an object to access a few methods/properties I don&#8217;t always want to<br>
+create a new casted variable:</p>
+<pre class="brush: as3">var child:DisplayObject = getChildThatMightBeMovieClip();
+
+if (child is MovieClip) {
+	var childAsMc:MovieClip = child as MovieClip;
+	trace(childAsMc.numChildren);
+	trace(childAsMc.currentFrame);
+}</pre>
+<p>or cast it every single time:</p>
+<pre class="brush: as3">var child:DisplayObject = getChildThatMightBeMovieClip();
+
+if (child is MovieClip) {
+	trace((child as MovieClip).numChildren);
+	trace((child as MovieClip).currentFrame);
+}</pre>
+<p>Using the &#8220;with&#8221; keyword, we can temporarily cast it without creating a temporary casted variable or casting it again and again:</p>
+<pre class="brush: as3">var child:DisplayObject = getChildThatMightBeMovieClip();
+
+if (child is MovieClip) {
+	with (child as MovieClip) {
+		trace(numChildren);
+		trace(currentFrame);
+	}
+}</pre>
+<p>Elegant =)</p>
+				</div>
+
+				<p class="postmetadata">Tags: <a href="/tag/as/" rel="tag">as</a>, <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/cast/" rel="tag">cast</a>, <a href="/tag/casting/" rel="tag">casting</a>, <a href="/tag/keyword/" rel="tag">keyword</a>, <a href="/tag/with/" rel="tag">with</a><br> Posted in <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a> |   <a href="/2010/07/as3-with-keyword-and-casting/#comments">7 Comments &#187;</a></p>
+
+			</div>
+
+				<div class="post">
+				<h3 id="post-304"><a href="/2010/06/global-error-handling-with-flash-player-10-1/" rel="bookmark" title="Permanent Link to Global error handling with Flash Player 10.1">Global error handling with Flash Player 10.1</a></h3>
+				<small>Wednesday, June 23rd, 2010</small>
+
+				<div class="entry">
+					<p>Since the official release of Flash Player 10.1 is out, now might be a good time to start implementing the global error handler.</p>
+<p>When this is written, flash builder 4 doesn&#8217;t have a native way that lets you use it, so we have to do a little mix.<strong> (Update: The update is out.)</strong><br>
+The global error handler works by adding an event to the uncaughtErrorEvents property of the loaderInfo of the application.<br>
+There are currently two methods of getting it to work.</p>
+<h3>Method 1 &#8211; The backwards compatible one:</h3>
+<p>Here the code doesn&#8217;t crash in flash player 9/10, but the error handling will only work in 10.1.</p>
+<pre class="brush: as3">if(loaderInfo.hasOwnProperty("uncaughtErrorEvents")){
+	IEventDispatcher(loaderInfo["uncaughtErrorEvents"]) .addEventListener("uncaughtError", uncaughtErrorHandler);
+}</pre>
+<pre class="brush: as3">private function uncaughtErrorHandler(e:Event):void {
+	trace("Global error:", e);
+}</pre>
+<h3>Method 2 &#8211; The type safe one:</h3>
+<p>Get the <a href="http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+4">Flex 4.1 SDK</a> if you haven&#8217;t already and choose that one as your project&#8217;s SDK.</p>
+<p>Now you can use the new global error handling like it was meant to be used:</p>
+<pre class="brush: as3">import flash.events.UncaughtErrorEvent;
+
+loaderInfo.uncaughtErrorEvents.addEventListener( UncaughtErrorEvent.UNCAUGHT_ERROR, uncaughtErrorHandler);
+
+private function uncaughtErrorHandler( e:UncaughtErrorEvent):void {
+	trace("Global error:", e);
+}</pre>
+				</div>
+
+				<p class="postmetadata">Tags: <a href="/tag/10-1/" rel="tag">10.1</a>, <a href="/tag/4-1/" rel="tag">4.1</a>, <a href="/tag/as/" rel="tag">as</a>, <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/error/" rel="tag">error</a>, <a href="/tag/exception/" rel="tag">exception</a>, <a href="/tag/flash/" rel="tag">Flash</a>, <a href="/tag/flex/" rel="tag">Flex</a>, <a href="/tag/global/" rel="tag">global</a>, <a href="/tag/handler/" rel="tag">handler</a>, <a href="/tag/handling/" rel="tag">handling</a>, <a href="/tag/player/" rel="tag">player</a>, <a href="/tag/sdk/" rel="tag">SDK</a>, <a href="/tag/uncaught/" rel="tag">uncaught</a>, <a href="/tag/uncaughterror/" rel="tag">uncaughtError</a>, <a href="/tag/uncaughterrorhandler/" rel="tag">uncaughterrorhandler</a><br> Posted in <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a>, <a href="/category/flash/flex/" rel="category tag">Flex</a> |   <a href="/2010/06/global-error-handling-with-flash-player-10-1/#comments">7 Comments &#187;</a></p>
+
+			</div>
+
+				<div class="post">
+				<h3 id="post-266"><a href="/2010/02/color-settint-alternative/" rel="bookmark" title="Permanent Link to Color.setTint() alternative (AS3)">Color.setTint() alternative (AS3)</a></h3>
+				<small>Monday, February 1st, 2010</small>
+
+				<div class="entry">
+					<p>I once discovered a really cool feature of the color class that lets you set the tint of an object via its color transform object using the setTint function.<br>
+The bad news though is that the Color class is in the <strong>fl</strong> namespace, so if you&#8217;re developing outside of the Flash IDE you have no access to that class natively, so here is how to replicate that functionality without the Color class:</p>
+<p>Tinting with the color class:</p>
+<pre class="brush: as3">import fl.motion.Color;
+// Tint the movie clip 50% with the color 0xFF9933
+var c:Color = new Color();
+c.setTint(0xFF9933, 0.5);
+myMovieClip.transform.colorTransform = c;</pre>
+<p>Tinting without the color class:</p>
+<pre class="brush: as3">import flash.geom.ColorTransform;
+
+// Tint the movie clip 50% with the color 0xFF9933
+var tintColor:uint = 0xFF9933;
+var tintMultiplier:Number = 0.5;
+setTint(myMovieClip, tintColor, tintMultiplier);
+
+function setTint(displayObject:DisplayObject, tintColor:uint, tintMultiplier:Number):void {
+	var colTransform:ColorTransform = new ColorTransform();
+	colTransform.redMultiplier = colTransform.greenMultiplier = colTransform.blueMultiplier = 1-tintMultiplier;
+	colTransform.redOffset = Math.round(((tintColor & 0xFF0000) >> 16) * tintMultiplier);
+	colTransform.greenOffset = Math.round(((tintColor & 0x00FF00) >> 8) * tintMultiplier);
+	colTransform.blueOffset = Math.round(((tintColor & 0x0000FF)) * tintMultiplier);
+	displayObject.transform.colorTransform = colTransform;
+}</pre>
+				</div>
+
+				<p class="postmetadata">Tags: <a href="/tag/alternative/" rel="tag">alternative</a>, <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/class/" rel="tag">class</a>, <a href="/tag/color/" rel="tag">color</a>, <a href="/tag/colortransform/" rel="tag">colortransform</a>, <a href="/tag/multiplier/" rel="tag">multiplier</a>, <a href="/tag/settint/" rel="tag">setTint</a>, <a href="/tag/source/" rel="tag">source</a>, <a href="/tag/tint/" rel="tag">tint</a>, <a href="/tag/transform/" rel="tag">transform</a><br> Posted in <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a> |   <a href="/2010/02/color-settint-alternative/#comments">3 Comments &#187;</a></p>
+
+			</div>
+
+				<div class="post">
+				<h3 id="post-240"><a href="/2009/11/pie-mask-in-as3/" rel="bookmark" title="Permanent Link to Pie mask in AS3">Pie mask in AS3</a></h3>
+				<small>Friday, November 13th, 2009</small>
+
+				<div class="entry">
+					<p>Sometimes I have the need for a rotational progress bar that acts like a pie growing bigger (or smaller if that strikes your fancy). As usual, I made my own =)<br>
+The function drawPieMask takes first the <strong>graphics</strong> object of the displayObject instance and draws a part of pie on it, <strong>percentage</strong> set&#8217;s how big the part is.<br>
+If you want to offset the rotation of the pie (it starts to the right by default) you can set the <strong>rotation</strong> parameter. Note that rotation is in radians, not degrees, but you can multiply your degrees by (Math.PI/180) to convert to radians.<br>
+Lastly, the <strong>sides</strong> property determines how many sides the circle drawn in the mask has. You can see an example of different pie masks after the code.</p>
+<p>To make the code as customizable as possible, it does not make a call to beginFill in case you want to set your own fill (or gradientfill even?).<br>
+If you just want to use it as a basic mask, just call beginFill(0) before and endFill() after the call to drawPieMask.</p>
+<pre class="brush: as3">function drawPieMask(graphics:Graphics, percentage:Number, radius:Number = 50, x:Number = 0, y:Number = 0, rotation:Number = 0, sides:int = 6):void {
+	// graphics should have its beginFill function already called by now
+	graphics.moveTo(x, y);
+	if (sides < 3) sides = 3; // 3 sides minimum
+	// Increase the length of the radius to cover the whole target
+	radius /= Math.cos(1/sides * Math.PI);
+	// Shortcut function
+	var lineToRadians:Function = function(rads:Number):void {
+		graphics.lineTo(Math.cos(rads) * radius + x, Math.sin(rads) * radius + y);
+	};
+	// Find how many sides we have to draw
+	var sidesToDraw:int = Math.floor(percentage * sides);
+	for (var i:int = 0; i <= sidesToDraw; i++)
+		lineToRadians((i / sides) * (Math.PI * 2) + rotation);
+	// Draw the last fractioned side
+	if (percentage * sides != sidesToDraw)
+		lineToRadians(percentage * (Math.PI * 2) + rotation);
+}</pre>
+<p>Example of different sides values. The last circle has a pie with 3 sides as a mask.<br>
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="450" height="310"><param name="movie" value="/wp-content/uploads/2009/11/PieMaskExample.swf">
+<!--[if !IE]>--><object type="application/x-shockwave-flash" data="/wp-content/uploads/2009/11/PieMaskExample.swf" width="450" height="310"><!--<![endif]--></object></object></p>
+<div>
+<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"></a></p>
+<p><!--[if !IE]>--><!--<![endif]--></p>
+<p>You can get the <a href="/wp-content/uploads/2009/11/PieMaskExample.zip">example fla here.</a></p>
+				</div>
+
+				<p class="postmetadata">Tags: <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/mask/" rel="tag">mask</a>, <a href="/tag/percentage/" rel="tag">percentage</a>, <a href="/tag/pie/" rel="tag">pie</a>, <a href="/tag/progress/" rel="tag">progress</a>, <a href="/tag/timer/" rel="tag">timer</a><br> Posted in <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a>, <a href="/category/math/" rel="category tag">Math</a> |   <a href="/2009/11/pie-mask-in-as3/#comments">19 Comments &#187;</a></p>
+
+			</div>
+
+				<div class="post">
+				<h3 id="post-185"><a href="/2009/10/profiling-as3flex-applications/" rel="bookmark" title="Permanent Link to Profiling AS3/Flex applications">Profiling AS3/Flex applications</a></h3>
+				<small>Tuesday, October 6th, 2009</small>
+
+				<div class="entry">
+					<p>I&#8217;m working on a big project and was having some problems with memory leaks. After some google-ing around I found this great video on <a href="http://tv.adobe.com/watch/360flex-conference/using-the-flex-builder-3-profiler-by-jun-heider/">AdobeTV</a> by <a href="http://www.iheartair.com/">Jun Heider</a> where he shows you how to profile both the memory and performance of your AS3 or Flex application.<br>
+It&#8217;s pretty thorough and it is little over one hour in length.</p>
+<p><object width="425" height="256"><param name="movie" value="http://images.tv.adobe.com//swf/player.swf">
+<param name="allowFullScreen" value="true">
+<param name="allowscriptaccess" value="always">
+<param name="FlashVars" value="fileID=2165&#038;context=141&#038;embeded=true&#038;environment=production">
+<embed src="http://images.tv.adobe.com//swf/player.swf" flashvars="fileID=2165&#038;context=141&#038;embeded=true&#038;environment=production" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="256"></object></p>
+				</div>
+
+				<p class="postmetadata">Tags: <a href="/tag/adobe-tv/" rel="tag">Adobe TV</a>, <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/builder/" rel="tag">builder</a>, <a href="/tag/flash/" rel="tag">Flash</a>, <a href="/tag/flex/" rel="tag">Flex</a>, <a href="/tag/jun-heider/" rel="tag">Jun Heider</a>, <a href="/tag/memory/" rel="tag">memory</a>, <a href="/tag/performance/" rel="tag">performance</a>, <a href="/tag/profiler/" rel="tag">profiler</a>, <a href="/tag/profiling/" rel="tag">profiling</a>, <a href="/tag/video/" rel="tag">video</a><br> Posted in <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a>, <a href="/category/flash/flex/" rel="category tag">Flex</a> |   <a href="/2009/10/profiling-as3flex-applications/#respond">No Comments &#187;</a></p>
+
+			</div>
+
+				<div class="post">
+				<h3 id="post-166"><a href="/2009/08/number-format-thousand-separator-in-as3/" rel="bookmark" title="Permanent Link to Number Format &#8211; Thousand Separator in AS3">Number Format &#8211; Thousand Separator in AS3</a></h3>
+				<small>Wednesday, August 12th, 2009</small>
+
+				<div class="entry">
+					<p>Here&#8217;s a short number format function I wrote to easily paste in your code when needed. It&#8217;s really handy for currency formatting.<br>
+The first parameter (number:*) can be a Number, int, uint or a String class instance.<br>
+The last parameter (siStyle:Boolean) specifies whether to use the <a href="http://en.wikipedia.org/wiki/SI" target="_blank">International System of Units</a> or not. <a href="http://en.wikipedia.org/wiki/SI" target="_blank">SI units</a> have points between the thousands and a comma for the seperator (123.456.789,01). Putting siStyle as false reverses that behaviour (123,456,789.01).</p>
+<p>It&#8217;s really ugly by design since I wanted it to be a single, tiny function. There&#8217;s loads of prettier/faster code samples out there.</p>
+<pre class="brush: as">function numberFormat(number:*, maxDecimals:int = 2, forceDecimals:Boolean = false, siStyle:Boolean = false):String {
+    var i:int = 0, inc:Number = Math.pow(10, maxDecimals), str:String = String(Math.round(inc * Number(number))/inc);
+    var hasSep:Boolean = str.indexOf(".") == -1, sep:int = hasSep ? str.length : str.indexOf(".");
+    var ret:String = (hasSep && !forceDecimals ? "" : (siStyle ? "," : ".")) + str.substr(sep+1);
+    if (forceDecimals) for (var j:int = 0; j <= maxDecimals - (str.length - (hasSep ? sep-1 : sep)); j++) ret += "0";
+    while (i + 3 < (str.substr(0, 1) == "-" ? sep-1 : sep)) ret = (siStyle ? "." : ",") + str.substr(sep - (i += 3), 3) + ret;
+    return str.substr(0, sep - i) + ret;
+}</pre>
+				</div>
+
+				<p class="postmetadata">Tags: <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/currency/" rel="tag">currency</a>, <a href="/tag/format/" rel="tag">format</a>, <a href="/tag/function/" rel="tag">function</a>, <a href="/tag/number/" rel="tag">number</a>, <a href="/tag/quick/" rel="tag">quick</a>, <a href="/tag/separator/" rel="tag">separator</a>, <a href="/tag/short/" rel="tag">short</a>, <a href="/tag/thousand/" rel="tag">thousand</a><br> Posted in <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a> |   <a href="/2009/08/number-format-thousand-separator-in-as3/#comments">17 Comments &#187;</a></p>
+
+			</div>
+
+				<div class="post">
+				<h3 id="post-137"><a href="/2009/05/load-font-dynamically-on-runtime/" rel="bookmark" title="Permanent Link to Load font dynamically on runtime">Load font dynamically on runtime</a></h3>
+				<small>Wednesday, May 6th, 2009</small>
+
+				<div class="entry">
+					<p>Sometimes you want to be able to keep your fonts in a seperate swf file, a &#8220;font library&#8221; if you will, that you can load dynamically on runtime. Here&#8217;s how to do that in AS3:</p>
+<p>The first thing you have to do is create a new flash file to store the font(s). Then, right click the library and select &#8220;New Font&#8230;&#8221;.<br>
+<img loading="lazy" src="/wp-content/uploads/2009/05/newfont.png" alt="newfont" title="newfont" width="373" height="296" class="aligncenter size-full wp-image-138" srcset="/wp-content/uploads/2009/05/newfont.png 373w, /wp-content/uploads/2009/05/newfont-300x238.png 300w" sizes="(max-width: 373px) 100vw, 373px"></p>
+<p>Choose the font you want to embed and give it a name. Any name will do here, as this is only the library name and will not affect our code in any way. I prefer to name the font with the same name as the linkage name I plan to give it.<br>
+<img loading="lazy" src="/wp-content/uploads/2009/05/myfont.png" alt="myfont" title="myfont" width="417" height="144" class="aligncenter size-full wp-image-141" srcset="/wp-content/uploads/2009/05/myfont.png 417w, /wp-content/uploads/2009/05/myfont-300x103.png 300w" sizes="(max-width: 417px) 100vw, 417px"></p>
+<p>Click ok, and then right click the font in the library and select &#8220;Linkage&#8230;&#8221;. Check the &#8220;Export for ActionScript&#8221; and &#8220;Export in first frame&#8221; options, give your font the linkage name of your own liking and click OK.<br>
+<img loading="lazy" src="/wp-content/uploads/2009/05/linkage.png" alt="linkage" title="linkage" width="447" height="231" class="aligncenter size-full wp-image-140" srcset="/wp-content/uploads/2009/05/linkage.png 447w, /wp-content/uploads/2009/05/linkage-300x155.png 300w" sizes="(max-width: 447px) 100vw, 447px"></p>
+<p>And now you&#8217;re ready. Export the file to swf and there&#8217;s your font resource file.</p>
+<p>If you want to use that font, you first have to load it into the application domain, and then register it on the global font list using the Font.registerFont function. The textfield can&#8217;t display it until it has the embedFonts property set to true and the font name in its textformat.<br>
+You can see an example in the following code, ready to be pasted into your frame:</p>
+<pre class="brush: as">var l:Loader = new Loader();
+l.contentLoaderInfo.addEventListener(Event.COMPLETE, onLoaded);
+l.load(new URLRequest("MyFont.swf"), new LoaderContext(false, ApplicationDomain.currentDomain));
+
+function onLoaded(e:Event):void {
+	// Register the font to the global font list
+	Font.registerFont( Class( ApplicationDomain.currentDomain.getDefinition("MyFont")));
+	
+	myTextField.embedFonts = true;
+	// instantiate the font just to get the real font name, or if you know the name before hand you can just hard-code it in here
+	var fontName:String = new (ApplicationDomain.currentDomain.getDefinition("MyFont"))().fontName;
+	var tf:TextFormat = new TextFormat(fontName);
+	// Set the text format for the text already in the text field
+	myTextField.setTextFormat(tf);
+	// and for future changes
+	myTextField.defaultTextFormat = tf;
+}</pre>
+				</div>
+
+				<p class="postmetadata">Tags: <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/dynamic/" rel="tag">dynamic</a>, <a href="/tag/embed/" rel="tag">embed</a>, <a href="/tag/external/" rel="tag">external</a>, <a href="/tag/flash/" rel="tag">Flash</a>, <a href="/tag/font/" rel="tag">font</a>, <a href="/tag/load/" rel="tag">load</a>, <a href="/tag/runtime/" rel="tag">runtime</a><br> Posted in <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a> |   <a href="/2009/05/load-font-dynamically-on-runtime/#comments">5 Comments &#187;</a></p>
+
+			</div>
+
+				<div class="post">
+				<h3 id="post-104"><a href="/2009/04/line-line-intersection-in-as3/" rel="bookmark" title="Permanent Link to Line-Line Intersection in AS3">Line-Line Intersection in AS3</a></h3>
+				<small>Tuesday, April 28th, 2009</small>
+
+				<div class="entry">
+					<p></p>
+<center><img loading="lazy" src="/wp-content/uploads/2008/11/linesect.png" alt="Line line intersection function explanation" title="linesect" width="259" height="134" class="size-full wp-image-71"></center>
+<p>I found a bug in my old <a href="/2008/11/line-line-intersection-in-cplusplus/">Line-Line Intersection in C++ post</a>, and after I fixed it I thought it would be a good idea to port it to AS3:</p>
+<pre class="brush: as">function intersection(p1:Point, p2:Point, p3:Point, p4:Point):Point {
+    var x1:Number = p1.x, x2:Number = p2.x, x3:Number = p3.x, x4:Number = p4.x;
+    var y1:Number = p1.y, y2:Number = p2.y, y3:Number = p3.y, y4:Number = p4.y;
+	var z1:Number= (x1 -x2), z2:Number = (x3 - x4), z3:Number = (y1 - y2), z4:Number = (y3 - y4);
+    var d:Number = z1 * z4 - z3 * z2;
+	
+    // If d is zero, there is no intersection
+    if (d == 0) return null;
+
+	// Get the x and y
+    var pre:Number = (x1*y2 - y1*x2), post:Number = (x3*y4 - y3*x4);
+    var x:Number = ( pre * z2 - z1 * post ) / d;
+    var y:Number = ( pre * z4 - z3 * post ) / d;
+    
+    // Check if the x and y coordinates are within both lines
+    if ( x < Math.min(x1, x2) || x > Math.max(x1, x2) ||
+        x < Math.min(x3, x4) || x > Math.max(x3, x4) ) return null;
+    if ( y < Math.min(y1, y2) || y > Math.max(y1, y2) ||
+        y < Math.min(y3, y4) || y > Math.max(y3, y4) ) return null;
+ 
+    // Return the point of intersection
+    return new Point(x, y);
+}</pre>
+<p>You can try it here:<br>
+</p>
+<center><object id="myId" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="300" height="180"><param name="movie" value="/wp-content/uploads/2009/04/lineline.swf">
+<!--[if !IE]>--><object type="application/x-shockwave-flash" data="/wp-content/uploads/2009/04/lineline.swf" width="300" height="180"><!--<![endif]-->
+<div>
+<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"></a></p>
+</div>
+<p><!--[if !IE]>--></p></object><!--<![endif]--></object></center>
+				</div>
+
+				<p class="postmetadata"> Posted in <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a>, <a href="/category/math/" rel="category tag">Math</a> |   <a href="/2009/04/line-line-intersection-in-as3/#comments">8 Comments &#187;</a></p>
+
+			</div>
+
+		
+		<div class="navigation">
+			<div class="alignleft"><a href="/category/flash/as3/page/3/">&laquo; Older Entries</a></div>
+			<div class="alignright"><a href="/category/flash/as3/">Newer Entries &raquo;</a></div>
+		</div>
+
+	
+	</div>
+
+	<div id="sidebar">
+		<ul>
+			
+			<!-- Author information is disabled per default. Uncomment and fill in your details if you want to use it.
+			<li><h2>Author</h2>
+			<p>A little something about you, the author. Nothing lengthy, just an overview.</p>
+			</li>
+			-->
+
+			 <li>
+
+						<p>You are currently browsing the archives for the AS3 category.</p>
+
+			
+			</li> 
+			
+			<li>
+<h2>Archives</h2>
+				<ul>
+					<li><a href="/2016/10/">October 2016</a></li>
+	<li><a href="/2016/07/">July 2016</a></li>
+	<li><a href="/2016/05/">May 2016</a></li>
+	<li><a href="/2016/04/">April 2016</a></li>
+	<li><a href="/2016/03/">March 2016</a></li>
+	<li><a href="/2015/10/">October 2015</a></li>
+	<li><a href="/2015/03/">March 2015</a></li>
+	<li><a href="/2015/01/">January 2015</a></li>
+	<li><a href="/2014/11/">November 2014</a></li>
+	<li><a href="/2013/03/">March 2013</a></li>
+	<li><a href="/2012/08/">August 2012</a></li>
+	<li><a href="/2012/07/">July 2012</a></li>
+	<li><a href="/2012/04/">April 2012</a></li>
+	<li><a href="/2012/02/">February 2012</a></li>
+	<li><a href="/2012/01/">January 2012</a></li>
+	<li><a href="/2011/11/">November 2011</a></li>
+	<li><a href="/2011/09/">September 2011</a></li>
+	<li><a href="/2011/05/">May 2011</a></li>
+	<li><a href="/2011/04/">April 2011</a></li>
+	<li><a href="/2011/01/">January 2011</a></li>
+	<li><a href="/2010/11/">November 2010</a></li>
+	<li><a href="/2010/09/">September 2010</a></li>
+	<li><a href="/2010/08/">August 2010</a></li>
+	<li><a href="/2010/07/">July 2010</a></li>
+	<li><a href="/2010/06/">June 2010</a></li>
+	<li><a href="/2010/05/">May 2010</a></li>
+	<li><a href="/2010/03/">March 2010</a></li>
+	<li><a href="/2010/02/">February 2010</a></li>
+	<li><a href="/2009/11/">November 2009</a></li>
+	<li><a href="/2009/10/">October 2009</a></li>
+	<li><a href="/2009/08/">August 2009</a></li>
+	<li><a href="/2009/05/">May 2009</a></li>
+	<li><a href="/2009/04/">April 2009</a></li>
+	<li><a href="/2009/03/">March 2009</a></li>
+	<li><a href="/2009/02/">February 2009</a></li>
+	<li><a href="/2008/11/">November 2008</a></li>
+	<li><a href="/2008/07/">July 2008</a></li>
+				</ul>
+			</li>
+
+			<li class="categories">
+<h2>Categories</h2>
+<ul>	<li class="cat-item cat-item-172">
+<a href="/category/ant/">ANT</a> (1)
+</li>
+	<li class="cat-item cat-item-3">
+<a href="/category/c/">C++</a> (1)
+</li>
+	<li class="cat-item cat-item-4">
+<a href="/category/css/">CSS</a> (2)
+</li>
+	<li class="cat-item cat-item-5">
+<a href="/category/firefox/">Firefox</a> (1)
+</li>
+	<li class="cat-item cat-item-6 current-cat-parent current-cat-ancestor">
+<a href="/category/flash/">Flash</a> (33)
+<ul class="children">
+	<li class="cat-item cat-item-154">
+<a href="/category/flash/alchemy/">Alchemy</a> (1)
+</li>
+	<li class="cat-item cat-item-12 current-cat">
+<a aria-current="page" href="/category/flash/as3/">AS3</a> (24)
+</li>
+	<li class="cat-item cat-item-7">
+<a href="/category/flash/flex/">Flex</a> (2)
+</li>
+	<li class="cat-item cat-item-211">
+<a href="/category/flash/flexsdk/">FlexSDK</a> (2)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-274">
+<a href="/category/git/">git</a> (2)
+</li>
+	<li class="cat-item cat-item-8">
+<a href="/category/html/">HTML</a> (3)
+</li>
+	<li class="cat-item cat-item-200">
+<a href="/category/internet-explorer/">Internet Explorer</a> (1)
+</li>
+	<li class="cat-item cat-item-217">
+<a href="/category/javascript/">JavaScript</a> (1)
+</li>
+	<li class="cat-item cat-item-286">
+<a href="/category/mac/">Mac</a> (1)
+</li>
+	<li class="cat-item cat-item-9">
+<a href="/category/math/">Math</a> (5)
+</li>
+	<li class="cat-item cat-item-10">
+<a href="/category/php/">PHP</a> (1)
+</li>
+	<li class="cat-item cat-item-201">
+<a href="/category/stage3d/">Stage3D</a> (1)
+</li>
+	<li class="cat-item cat-item-1">
+<a href="/category/uncategorized/">Uncategorized</a> (4)
+</li>
+	<li class="cat-item cat-item-240">
+<a href="/category/unity/">Unity</a> (6)
+<ul class="children">
+	<li class="cat-item cat-item-247">
+<a href="/category/unity/2d/">2D</a> (2)
+</li>
+	<li class="cat-item cat-item-241">
+<a href="/category/unity/networking/">Networking</a> (1)
+</li>
+	<li class="cat-item cat-item-252">
+<a href="/category/unity/ui/">UI</a> (2)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-11">
+<a href="/category/windows-mobile/">Windows Mobile</a> (1)
+</li>
+</ul>
+</li>
+			
+					</ul>
+	</div>
+
+
+<hr>
+<div id="footer">
+</div>
+</div>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js?ver=5.8.6" id="wp-embed-js"></script>
+</div>
+</body>
+</html>

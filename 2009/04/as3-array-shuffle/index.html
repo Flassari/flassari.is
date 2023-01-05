@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="The works and thoughts of a game programmer">
+
+<title>Flassari.is  &raquo; AS3 Array Shuffle</title>
+
+<link rel="stylesheet" href="/wp-content/themes/flassari/style.css" type="text/css" media="screen">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/swfobject.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shCore.css">
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shThemeDefault.css">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shCore.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushAS3.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushXml.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushPhp.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushCpp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"httpsflassari.is\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.8.6" type="text/css" media="all">
+<meta name="generator" content="WordPress 5.8.6">
+<link rel="canonical" href="/2009/04/as3-array-shuffle/">
+<link rel="shortlink" href="/?p=89">
+<script type="text/javascript" src="/wp-includes/js/tw-sack.min.js?ver=1.6.1" id="sack-js"></script>
+</head>
+<body>
+
+
+<div id="page">
+<div id="header">
+	<a href="/"><h1>Flassari.is</h1></a>
+</div>
+<hr>
+
+
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="/2009/03/find-the-value-between-two-colors/" rel="prev">Find the value between two colors</a>
+</div>
+			<div class="alignright">
+<a href="/2009/04/flash-player-10-penetration-at-75-point-3-percent/" rel="next">Flash Player 10 penetration at 75.3%</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-89">
+			<h2>AS3 Array Shuffle</h2>
+
+			<div class="entry">
+				<p>There are a lot of ways to shuffle an array in AS3, ranging from swapping repeatedly the elements to using the sort function with a random sorter, but the most convenient way I&#8217;ve found was to simply splice a random element from the former array to the new shuffled array while the former array has elements.</p>
+<p><a href="http://www.daveoncode.com/">DaveOnCode</a> has <a href="http://www.daveoncode.com/2009/01/08/implementing-arrayshuffle-in-actionscript/">a nice implementation</a> of this method, pasted here:</p>
+<pre class="brush: as">var arr2:Array = [];
+
+while (arr.length > 0) {
+    arr2.push(arr.splice(Math.round(Math.random() * (arr.length - 1)), 1)[0]);
+}</pre>
+<p>Edit: Although small and convenient, this method is not the fastest way of shuffling an array, check out the comments for more info.</p>
+
+								
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on Friday, April 17th, 2009 at 13:44						and is filed under <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a>.
+						<br><br>
+						The website has been archived and no new comments can be posted.
+					</small>
+				</p>
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">15 Responses to &#8220;AS3 Array Shuffle&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-33">
+			<img alt="" src="https://secure.gravatar.com/avatar/4794aa0020768c26d26397b56a45352e?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/4794aa0020768c26d26397b56a45352e?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.daveoncode.com/" rel="external nofollow ugc" class="url">DaveOnCode</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-33" title="">April 17th, 2009 at 14:16</a> </small>
+
+			<p>Thank you for the quote! :)</p>
+
+		</li>
+
+	
+	
+		<li id="comment-34">
+			<img alt="" src="https://secure.gravatar.com/avatar/6c9dc728c44c7c9b6dd05ccaf092364a?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/6c9dc728c44c7c9b6dd05ccaf092364a?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>turtlebite</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-34" title="">June 15th, 2009 at 14:58</a> </small>
+
+			<p>Absolutly perfect, thanks a lot!</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-35">
+			<img alt="" src="https://secure.gravatar.com/avatar/f678c0cf517e7d90529bb19c96ef0ad5?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/f678c0cf517e7d90529bb19c96ef0ad5?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.funkyclouds.be/" rel="external nofollow ugc" class="url">Funky Clouds</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-35" title="">July 13th, 2009 at 08:36</a> </small>
+
+			<p>Thanks! Will need this :)</p>
+
+		</li>
+
+	
+	
+		<li id="comment-36">
+			<img alt="" src="https://secure.gravatar.com/avatar/d9feabb1c08531b54cdfb49cfa96e4a2?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/d9feabb1c08531b54cdfb49cfa96e4a2?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://joalbright.com/" rel="external nofollow ugc" class="url">Jo Albright</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-36" title="">September 9th, 2009 at 17:47</a> </small>
+
+			<p>Wow. Brilliant. Best, cleanest, and fastest array shuffle I have found. Thank you for sharing this.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-37">
+			<img alt="" src="https://secure.gravatar.com/avatar/5e6cd7d889d88888d19fa055843b3d1e?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/5e6cd7d889d88888d19fa055843b3d1e?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Özgür</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-37" title="">March 18th, 2010 at 08:51</a> </small>
+
+			<p>Excellent!</p>
+
+		</li>
+
+	
+	
+		<li id="comment-38">
+			<img alt="" src="https://secure.gravatar.com/avatar/0aabebfe163eb3b6d418cfd025b8c8af?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/0aabebfe163eb3b6d418cfd025b8c8af?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.gamebodia.com/" rel="external nofollow ugc" class="url">xxxxGame</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-38" title="">March 22nd, 2010 at 02:00</a> </small>
+
+			<p>nice thank u!</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-39">
+			<img alt="" src="https://secure.gravatar.com/avatar/18b213e5119eff37ce6acee35b9c0484?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/18b213e5119eff37ce6acee35b9c0484?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>philtre</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-39" title="">March 23rd, 2010 at 14:29</a> </small>
+
+			<p>It would probably be a tad faster like this:</p>
+<p>var len:int = arr.length;<br>
+var arr2:Array = new Array(len);<br>
+for(var i:int = 0; i&lt;len; i++)<br>
+{<br>
+  arr2[i] = arr.splice(int(Math.random() * (len &#8211; i)), 1)[0];<br>
+}</p>
+
+		</li>
+
+	
+	
+		<li id="comment-40">
+			<img alt="" src="https://secure.gravatar.com/avatar/2e20576f63eca088ebb51421a71a8995?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/2e20576f63eca088ebb51421a71a8995?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://coob.co.uk/" rel="external nofollow ugc" class="url">chichilatte</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-40" title="">March 29th, 2010 at 21:28</a> </small>
+
+			<p>Ta buddee :)</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-41">
+			<img alt="" src="https://secure.gravatar.com/avatar/1436da8b2061e43963bed13b09d2b93e?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/1436da8b2061e43963bed13b09d2b93e?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://mrsteel.wordpress.com/" rel="external nofollow ugc" class="url">MrSteel</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-41" title="">May 14th, 2010 at 14:37</a> </small>
+
+			<p>hi</p>
+<p>nice way but it&#8217;s not the fastest<br>
+take a look <a href="http://mrsteel.wordpress.com/2007/06/15/randomize-array-shuffle-an-array-in-flash/" rel="nofollow ugc">http://mrsteel.wordpress.com/2007/06/15/randomize-array-shuffle-an-array-in-flash/</a> </p>
+<p>shuffle by slice is one of slowest methods actually</p>
+
+		</li>
+
+	
+	
+		<li id="comment-42">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-42" title="">May 14th, 2010 at 14:53</a> </small>
+
+			<p>Thanks for that info MrSteel, good to have that reference here</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-43">
+			<img alt="" src="https://secure.gravatar.com/avatar/e1c45d6c100306978ee5740fcb8f19f6?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/e1c45d6c100306978ee5740fcb8f19f6?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://andreasmuench.de/" rel="external nofollow ugc" class="url">andreas</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-43" title="">February 10th, 2011 at 14:00</a> </small>
+
+			<p>thanks, comes in handy &#8230; who cares fo 2 milliseconds ;)</p>
+
+		</li>
+
+	
+	
+		<li id="comment-374">
+			<img alt="" src="https://secure.gravatar.com/avatar/2d7ec58cdeca98ccced1291000b4bdab?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/2d7ec58cdeca98ccced1291000b4bdab?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>sid</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-374" title="">August 29th, 2011 at 05:33</a> </small>
+
+			<p>perfect suffling</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-489">
+			<img alt="" src="https://secure.gravatar.com/avatar/7bbf08fa71f05597639efc6d6ec9939a?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/7bbf08fa71f05597639efc6d6ec9939a?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>andy</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-489" title="">October 5th, 2011 at 17:06</a> </small>
+
+			<p>splicing is slow, but it also provides a truly random array&#8230; the quickest published way is biased toward keeping keeping earlier elements in the initial array earlier in the mixed array, here are my two utility randomizing methods:</p>
+<p>public static function randomizeArray(array:Array):Array<br>
+		{<br>
+			//l=length arr=temp parameter array mixed=randomized array i=index<br>
+			var l:int = array.length,arr = array.slice(),mixed:Array = new Array(l),i:int;<br>
+			for (i = 0; i&lt;l; i++)<br>
+			{<br>
+				mixed[i] = arr.splice(int(Math.random() * (l &#8211; i)), 1)[0];<br>
+			}<br>
+			return mixed;<br>
+		}</p>
+<p>		public static function randomizeArrayQuick(array:Array):Array<br>
+		{<br>
+			//This method is significantly faster, but not truly random<br>
+			//l=length mixed=randomized array r=random number i=index e=array element<br>
+			var l:Number = array.length,mixed:Array = array.slice(),r:Number,i:Number,e:Object;<br>
+			for (i = 0; i&lt;l; i++)<br>
+			{<br>
+				e = mixed[i];<br>
+				r = Math.floor(Math.random() * l);<br>
+				mixed[i] = mixed[r];<br>
+				mixed[r] = e;<br>
+			}<br>
+			return mixed;<br>
+		}</p>
+
+		</li>
+
+	
+	
+		<li id="comment-545">
+			<img alt="" src="https://secure.gravatar.com/avatar/ab099b55d17e8ad3cbe99fcb34e9b6ba?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/ab099b55d17e8ad3cbe99fcb34e9b6ba?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>aiux</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-545" title="">October 17th, 2011 at 10:55</a> </small>
+
+			<p>actually nothing is truly random in desktop computing :)</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1221">
+			<img alt="" src="https://secure.gravatar.com/avatar/67d0a88a51b18a65c3590729c261506d?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/67d0a88a51b18a65c3590729c261506d?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Thales</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1221" title="">February 27th, 2012 at 15:25</a> </small>
+
+			<p>Trying an Array: a[1,2,3,4,5,6,7,8,9,10],<br>
+This function give us 5% chance of the first position stay with 1 and 20% of the last stay with 10.</p>
+<p>function shuffle3(array_arr:Array):Array{<br>
+		   for(var i:Number = 0; i &lt; array_arr.length; i++){<br>
+			  var randomNum_num = Math.floor(Math.random() * array_arr.length);<br>
+			  var arrayIndex = array_arr[i];<br>
+			  array_arr[i] = array_arr[randomNum_num];<br>
+			  array_arr[randomNum_num] = arrayIndex;<br>
+		   }<br>
+		   return array_arr;<br>
+		}</p>
+<p>this one have 10% for each position of that array.</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+	
+	</div>
+
+<hr>
+<div id="footer">
+</div>
+</div>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js?ver=5.8.6" id="wp-embed-js"></script>
+</body>
+</html>

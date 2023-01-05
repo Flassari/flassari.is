@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="The works and thoughts of a game programmer">
+
+<title>Flassari.is  &raquo; Load font dynamically on runtime</title>
+
+<link rel="stylesheet" href="/wp-content/themes/flassari/style.css" type="text/css" media="screen">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/swfobject.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shCore.css">
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shThemeDefault.css">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shCore.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushAS3.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushXml.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushPhp.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushCpp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"httpsflassari.is\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.8.6" type="text/css" media="all">
+<meta name="generator" content="WordPress 5.8.6">
+<link rel="canonical" href="/2009/05/load-font-dynamically-on-runtime/">
+<link rel="shortlink" href="/?p=137">
+<script type="text/javascript" src="/wp-includes/js/tw-sack.min.js?ver=1.6.1" id="sack-js"></script>
+</head>
+<body>
+
+
+<div id="page">
+<div id="header">
+	<a href="/"><h1>Flassari.is</h1></a>
+</div>
+<hr>
+
+
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="/2009/04/line-line-intersection-in-as3/" rel="prev">Line-Line Intersection in AS3</a>
+</div>
+			<div class="alignright">
+<a href="/2009/08/number-format-thousand-separator-in-as3/" rel="next">Number Format &#8211; Thousand Separator in AS3</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-137">
+			<h2>Load font dynamically on runtime</h2>
+
+			<div class="entry">
+				<p>Sometimes you want to be able to keep your fonts in a seperate swf file, a &#8220;font library&#8221; if you will, that you can load dynamically on runtime. Here&#8217;s how to do that in AS3:</p>
+<p>The first thing you have to do is create a new flash file to store the font(s). Then, right click the library and select &#8220;New Font&#8230;&#8221;.<br>
+<img loading="lazy" src="/wp-content/uploads/2009/05/newfont.png" alt="newfont" title="newfont" width="373" height="296" class="aligncenter size-full wp-image-138" srcset="/wp-content/uploads/2009/05/newfont.png 373w, /wp-content/uploads/2009/05/newfont-300x238.png 300w" sizes="(max-width: 373px) 100vw, 373px"></p>
+<p>Choose the font you want to embed and give it a name. Any name will do here, as this is only the library name and will not affect our code in any way. I prefer to name the font with the same name as the linkage name I plan to give it.<br>
+<img loading="lazy" src="/wp-content/uploads/2009/05/myfont.png" alt="myfont" title="myfont" width="417" height="144" class="aligncenter size-full wp-image-141" srcset="/wp-content/uploads/2009/05/myfont.png 417w, /wp-content/uploads/2009/05/myfont-300x103.png 300w" sizes="(max-width: 417px) 100vw, 417px"></p>
+<p>Click ok, and then right click the font in the library and select &#8220;Linkage&#8230;&#8221;. Check the &#8220;Export for ActionScript&#8221; and &#8220;Export in first frame&#8221; options, give your font the linkage name of your own liking and click OK.<br>
+<img loading="lazy" src="/wp-content/uploads/2009/05/linkage.png" alt="linkage" title="linkage" width="447" height="231" class="aligncenter size-full wp-image-140" srcset="/wp-content/uploads/2009/05/linkage.png 447w, /wp-content/uploads/2009/05/linkage-300x155.png 300w" sizes="(max-width: 447px) 100vw, 447px"></p>
+<p>And now you&#8217;re ready. Export the file to swf and there&#8217;s your font resource file.</p>
+<p>If you want to use that font, you first have to load it into the application domain, and then register it on the global font list using the Font.registerFont function. The textfield can&#8217;t display it until it has the embedFonts property set to true and the font name in its textformat.<br>
+You can see an example in the following code, ready to be pasted into your frame:</p>
+<pre class="brush: as">var l:Loader = new Loader();
+l.contentLoaderInfo.addEventListener(Event.COMPLETE, onLoaded);
+l.load(new URLRequest("MyFont.swf"), new LoaderContext(false, ApplicationDomain.currentDomain));
+
+function onLoaded(e:Event):void {
+	// Register the font to the global font list
+	Font.registerFont( Class( ApplicationDomain.currentDomain.getDefinition("MyFont")));
+	
+	myTextField.embedFonts = true;
+	// instantiate the font just to get the real font name, or if you know the name before hand you can just hard-code it in here
+	var fontName:String = new (ApplicationDomain.currentDomain.getDefinition("MyFont"))().fontName;
+	var tf:TextFormat = new TextFormat(fontName);
+	// Set the text format for the text already in the text field
+	myTextField.setTextFormat(tf);
+	// and for future changes
+	myTextField.defaultTextFormat = tf;
+}</pre>
+
+								<p>Tags: <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/dynamic/" rel="tag">dynamic</a>, <a href="/tag/embed/" rel="tag">embed</a>, <a href="/tag/external/" rel="tag">external</a>, <a href="/tag/flash/" rel="tag">Flash</a>, <a href="/tag/font/" rel="tag">font</a>, <a href="/tag/load/" rel="tag">load</a>, <a href="/tag/runtime/" rel="tag">runtime</a></p>
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on Wednesday, May 6th, 2009 at 15:20						and is filed under <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a>.
+						<br><br>
+						The website has been archived and no new comments can be posted.
+					</small>
+				</p>
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">5 Responses to &#8220;Load font dynamically on runtime&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-51">
+			<img alt="" src="https://secure.gravatar.com/avatar/e634876a3a9e7f9b8aba79583c0e8e30?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/e634876a3a9e7f9b8aba79583c0e8e30?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://blog.nobien.net/" rel="external nofollow ugc" class="url">Matt</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-51" title="">June 7th, 2009 at 23:07</a> </small>
+
+			<p>Just keep in mind that if you load a SWF that has any of the same fonts in static or dynamic text fields placed at author time, you&#8217;ll experience conflicts with any of your runtime loaded fonts. I&#8217;ve been battling with this problem for the last two weeks.</p>
+<p><a href="http://blog.nobien.net/2009/06/03/runtime-font-loading-and-static-textfield-conflicts/" rel="nofollow ugc">http://blog.nobien.net/2009/06/03/runtime-font-loading-and-static-textfield-conflicts/</a></p>
+
+		</li>
+
+	
+	
+		<li id="comment-52">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-52" title="">June 8th, 2009 at 09:22</a> </small>
+
+			<p>This happens because when you assign the font to a static or dynamic text field, a class holding the font (holding only the characters you used in the text fields, or more if you embedded any in the dynamic ones) is generated and put into the application domain. You can not override classes with the same name already in the application domain, so when you load the font file, the font class in it is silently ignored (this applies to all classes you try to override).<br>
+The only workaround I could come up with is breaking (ctrl+b) all the static text fields until they&#8217;re just shapes, and putting the font of the dynamic text fields to default system font, and then set the font to the loaded one dynamically on runtime after the font has been loaded.<br>
+Just make sure that the font is not already in use anywhere or it will not be loaded.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-53">
+			<img alt="" src="https://secure.gravatar.com/avatar/d68e6886485d7a35a054cc3ab3e9693b?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/d68e6886485d7a35a054cc3ab3e9693b?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Andre</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-53" title="">May 13th, 2010 at 10:49</a> </small>
+
+			<p>Thanks for the post, very helpfull. BUT im having issues when i want to load the font SWF files from a <a href="http://www.domain.com/" rel="nofollow ugc">http://www.domain.com</a> address</p>
+<p>ie, loading in &#8216;MyFont.swf&#8217; works well<br>
+loading in &#8216;http://www.domain.com/MyFont.swf&#8217; does not.</p>
+<p>any ideas on how to solve this?</p>
+<p>thnks.</p>
+
+		</li>
+
+	
+	
+		<li id="comment-54">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-54" title="">May 14th, 2010 at 11:36</a> </small>
+
+			<p>@Andre, you might be needing a crossdomain.xml file on your website to allow other swfs to access the file.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-55">
+			<img alt="" src="https://secure.gravatar.com/avatar/992b69a7d719ab43adc66ca19faf485e?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/992b69a7d719ab43adc66ca19faf485e?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Dave</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-55" title="">July 22nd, 2010 at 11:18</a> </small>
+
+			<p>Flassari, thanks for the post, worked well, instead I used the e.target.applicationDomain.getDefinition instead of the ApplicationDomain.currentDomain.getDefinition and it all worked famously! The one line registerFont and the return of the fontName was perfect for me.</p>
+<p>Thanks!</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+	
+	</div>
+
+<hr>
+<div id="footer">
+</div>
+</div>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js?ver=5.8.6" id="wp-embed-js"></script>
+</body>
+</html>

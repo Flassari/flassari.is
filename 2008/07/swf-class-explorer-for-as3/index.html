@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="The works and thoughts of a game programmer">
+
+<title>Flassari.is  &raquo; Swf Class Explorer for AS3</title>
+
+<link rel="stylesheet" href="/wp-content/themes/flassari/style.css" type="text/css" media="screen">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/swfobject.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shCore.css">
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shThemeDefault.css">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shCore.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushAS3.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushXml.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushPhp.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushCpp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"httpsflassari.is\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.8.6" type="text/css" media="all">
+<meta name="generator" content="WordPress 5.8.6">
+<link rel="canonical" href="/2008/07/swf-class-explorer-for-as3/">
+<link rel="shortlink" href="/?p=8">
+<script type="text/javascript" src="/wp-includes/js/tw-sack.min.js?ver=1.6.1" id="sack-js"></script>
+</head>
+<body>
+
+
+<div id="page">
+<div id="header">
+	<a href="/"><h1>Flassari.is</h1></a>
+</div>
+<hr>
+
+
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="/2008/07/iceland-socks-outtakes/" rel="prev">Iceland Socks Outtakes</a>
+</div>
+			<div class="alignright">
+<a href="/2008/11/line-line-intersection-in-cplusplus/" rel="next">Line-Line Intersection in C++</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-8">
+			<h2>Swf Class Explorer for AS3</h2>
+
+			<div class="entry">
+				<p>The ApplicationDomain class in Actionscript 3 is a really handy class. It allows you to get any class from a loaded (or the current) swf and instantiate it.</p>
+<p>ApplicationDomain currently has two public methods, hasDefinition(name:String):Boolean and getDefinition(name:String):Object. The simplicity of using these classes is a real treat, instantiating a class is as easy as</p>
+<pre class="brush: as">var myInstance:DisplayObject = new 
+(ApplicationDomain.currentDomain. getDefinition("com.flassari.MyClass"));</pre>
+<p>The biggest pain about the ApplicationDomain class is however its lack of a function for displaying all of the classes in a particular ApplicationDomain.<br>
+ApplicationDomain.getAllDefinitions():Array would be great! But unfortunately we must find our own way of getting around this flaw&#8230; so here it is!</p>
+<p>I give you, <strong>the SwfClassExplorer class</strong>. Its usage is simple, as it has only one static function, getClasses(bytes:ByteArray):Array. To use it you must provide it with the bytes of the swf clip you want to explore. Here is an example of basic usage:</p>
+<pre class="brush: as">public function init():void {
+	// Load the swf
+	var urlLoader:URLLoader = new URLLoader();
+	urlLoader.dataFormat = URLLoaderDataFormat.BINARY;
+	urlLoader.addEventListener(Event.COMPLETE, onSwfLoaded);
+	urlLoader.load(new URLRequest("pathToSwf"));
+}
+
+private function onSwfLoaded(e:Event):void {
+	// Get the bytes from the swf
+	var bytes:ByteArray = ByteArray(URLLoader(e.currentTarget).data);
+	// And feed it to the SwfClassExplorer
+	var traits:Array = SwfClassExplorer.getClasses(bytes);
+	for each (var trait:Traits in traits) {
+		trace(trait.toString()); // The full class name
+	}
+}</pre>
+<p>I&#8217;ve prepared an example to demonstrate how it works.<br>
+First we have the Primitives.swf file. It will act as our &#8220;MovieClip library&#8221;. Its library consists of four movieclips, Box, Circle, Polystar and Triangle, each with its linkage class set to its library name:</p>
+<p><img src="/wp-content/uploads/2008/07/16/Library.jpg" alt="library"></p>
+<p>Next we have the Example.swf file. It loads any swf file (Primitives.swf is in the path box by default) and lists all of the classes found in it. If the user clicks any of the classes, it will try to instantiate the class using no parameters (exceptions will be caught and displayed to the user) and if is or extends DisplayObject it will display it in the preview area.</p>
+<div style="border: 1px solid black;"><object id="myId" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="420" height="300"><param name="movie" value="/wp-content/uploads/2008/07/16/Example.swf">
+<!--[if !IE]>--><object type="application/x-shockwave-flash" data="/wp-content/uploads/2008/07/16/Example.swf" width="420" height="300"><!--<![endif]-->
+<div>
+<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player"></a></p>
+</div>
+<p><!--[if !IE]>--></p></object><!--<![endif]--></object></div>
+<p>You can get the <a href="/wp-content/uploads/2009/08/swfclassexplorer.zip">example files and source code here</a> or the <a href="/wp-content/uploads/2009/08/SwfClassExplorer.swc">compiled swc here</a>.</p>
+<p>*UPDATE!<br>
+The code is now on GitHub: <a href="https://github.com/Flassari/Swf-Class-Explorer">https://github.com/Flassari/Swf-Class-Explorer</a><br>
+And apparently the swc file has gone MIA, I&#8217;ll upload it again if I have the time/can be bothered.</p>
+
+								
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on Friday, July 18th, 2008 at 14:59						and is filed under <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a>.
+						<br><br>
+						The website has been archived and no new comments can be posted.
+					</small>
+				</p>
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">27 Responses to &#8220;Swf Class Explorer for AS3&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-2">
+			<img alt="" src="https://secure.gravatar.com/avatar/a55d457001ff6048e7a3599cab979a30?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/a55d457001ff6048e7a3599cab979a30?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>JoeTheProgrammer</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-2" title="">November 18th, 2008 at 20:54</a> </small>
+
+			<p>Hey good job.    It stopped working for me with SWF files with many class definitions, so I investigated into porting SwfOp until I realized that that&#8217;s exactly what you did.</p>
+<p>The problem was that somehow my SWF got corrupted.  Some headers were outrageously large, in the billions.</p>
+<p>The strange part, however, is that FlashDevelop was still able to parse all the classes!  But now your version is working for me, as I re-built the original FLA. Hopefully they don&#8217;t get corrupted anymore&#8230;</p>
+
+		</li>
+
+	
+	
+		<li id="comment-3">
+			<img alt="" src="https://secure.gravatar.com/avatar/a1e03f5128288593067d9c400f2f49e0?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/a1e03f5128288593067d9c400f2f49e0?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.jonathan-dumaine.com/" rel="external nofollow ugc" class="url">Jonathan Dumaine</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-3" title="">February 19th, 2009 at 00:14</a> </small>
+
+			<p>I. Fracking. Love you.</p>
+<p>I needed this so much. Thank you, thank you!</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-4">
+			<img alt="" src="https://secure.gravatar.com/avatar/b66474a88a8cd953ca38800f69eae5e9?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/b66474a88a8cd953ca38800f69eae5e9?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://tylermadison.info/" rel="external nofollow ugc" class="url">Tyler Madison</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-4" title="">September 3rd, 2009 at 20:57</a> </small>
+
+			<p>THANK YOU!</p>
+
+		</li>
+
+	
+	
+		<li id="comment-5">
+			<img alt="" src="https://secure.gravatar.com/avatar/787ef1dfcee5ec9f1470e5d241398070?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/787ef1dfcee5ec9f1470e5d241398070?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://twitter.com/bjornbjorn" rel="external nofollow ugc" class="url">bjorn</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-5" title="">October 14th, 2009 at 10:44</a> </small>
+
+			<p>Awesome work &#8211; thanks for sharing this! :-)</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-6">
+			<img alt="" src="https://secure.gravatar.com/avatar/f906aad5ef2f7266f7623beb9bd5ea4b?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/f906aad5ef2f7266f7623beb9bd5ea4b?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Weston</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-6" title="">November 6th, 2009 at 19:41</a> </small>
+
+			<p>Is there a compiled version of the swfclassexplorer.swc?</p>
+
+		</li>
+
+	
+	
+		<li id="comment-7">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-7" title="">November 7th, 2009 at 12:34</a> </small>
+
+			<p>No, but since you have the source code there you don&#8217;t have to or you can do it yourself with a quick google search =)</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-8">
+			<img alt="" src="https://secure.gravatar.com/avatar/f906aad5ef2f7266f7623beb9bd5ea4b?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/f906aad5ef2f7266f7623beb9bd5ea4b?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Weston</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-8" title="">November 9th, 2009 at 15:23</a> </small>
+
+			<p>I know how to build, but at my company if we build third party swcs ourselves, we have to go through legal, (yes, even if you&#8217;re using the MIT license).  Was trying to avoid the red tape hassel!!  :)</p>
+
+		</li>
+
+	
+	
+		<li id="comment-9">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-9" title="">November 9th, 2009 at 17:14</a> </small>
+
+			<p>Ok, added the swc to the bottom of the post.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-10">
+			<img alt="" src="https://secure.gravatar.com/avatar/f906aad5ef2f7266f7623beb9bd5ea4b?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/f906aad5ef2f7266f7623beb9bd5ea4b?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Weston</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-10" title="">November 9th, 2009 at 20:32</a> </small>
+
+			<p>Thanks very much!!!  BTW &#8211; a quick question &#8211; what does trait.baseName tell us?  </p>
+<p>The direct parent of the class? ie &#8220;extends&#8221;?  </p>
+<p>Or the lowest level object?</p>
+<p>Thanks again!  Great product!!</p>
+
+		</li>
+
+	
+	
+		<li id="comment-11">
+			<img alt="" src="https://secure.gravatar.com/avatar/c06d5df780df4b8d5d52bf85e6e97b89?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/c06d5df780df4b8d5d52bf85e6e97b89?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://ptymn.blogspot.com/" rel="external nofollow ugc" class="url">pTymN</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-11" title="">May 5th, 2010 at 16:53</a> </small>
+
+			<p>Hey, the code breaks when I try to load this swf: <a href="http://tim.kerchmar.com/level2-background3.swf" rel="nofollow ugc">http://tim.kerchmar.com/level2-background3.swf</a></p>
+<p>I tried publishing the swf as Flash Player 9 compiled and Flash Player 10 compiled, and neither option changed the error from: Error: Record header length too big.</p>
+<p>with these values:</p>
+<p>br.bytesAvailable = 50168<br>
+br.endian = &#8220;littleEndian&#8221;<br>
+br.length = 51732<br>
+br.objectEncoding = 3<br>
+br.position = 1564<br>
+tagCl = 50431<br>
+tagCode = 787<br>
+tagLength = 1073408</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-12">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-12" title="">May 6th, 2010 at 10:13</a> </small>
+
+			<p>Odd, I&#8217;ll look into it</p>
+
+		</li>
+
+	
+	
+		<li id="comment-13">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-13" title="">May 6th, 2010 at 10:38</a> </small>
+
+			<p>@pTymN: I tried using Flash Develop&#8217;s swf class browser to see what classes are in the swf, but even Flash Develop fails. The swf might be corrupted. See this picture:<br>
+<img src="/wp-content/uploads/2010/05/swf_fail.png" alt="Swf fail :("><br>
+Can you use any other libraries like <a href="http://osflash.org/swfop" rel="nofollow">SwfOp</a> and see if they succeed in getting the classes of your swf?</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-14">
+			<img alt="" src="https://secure.gravatar.com/avatar/c06d5df780df4b8d5d52bf85e6e97b89?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/c06d5df780df4b8d5d52bf85e6e97b89?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://ptymn.blogspot.com/" rel="external nofollow ugc" class="url">pTymN</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-14" title="">May 6th, 2010 at 12:51</a> </small>
+
+			<p>I recreated the FLA, and the best that I can tell is that somehow the png that is used is causing the problem. I&#8217;ll try re-saving the png from gimp with different settings and seeing if I can find a combination of FLA/PNG settings that allows that swf to load. The very same project is loading 3 other nearly identical swfs without any problems.</p>
+
+		</li>
+
+	
+	
+		<li id="comment-15">
+			<img alt="" src="https://secure.gravatar.com/avatar/c06d5df780df4b8d5d52bf85e6e97b89?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/c06d5df780df4b8d5d52bf85e6e97b89?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://ptymn.blogspot.com/" rel="external nofollow ugc" class="url">pTymN</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-15" title="">May 6th, 2010 at 22:01</a> </small>
+
+			<p>That was retarted. Restarting the Flash IDE fixed the issue.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-16">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-16" title="">May 6th, 2010 at 22:06</a> </small>
+
+			<p>Lol, well, glad it&#8217;s fixed =)</p>
+
+		</li>
+
+	
+	
+		<li id="comment-17">
+			<img alt="" src="https://secure.gravatar.com/avatar/71ec7895cada78741057c644d858b0e3?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/71ec7895cada78741057c644d858b0e3?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Jeff</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-17" title="">September 1st, 2010 at 20:24</a> </small>
+
+			<p>Is it possible to extend this tool to determine from the SWF bytecode what classes a SWF is dependent upon which it does not define?</p>
+<p>That is, if I compile a SWF which references one or more SWC files without static linking, I have a SWF that is dependent on other SWF/SWC files being loaded first.</p>
+<p>So the question is, can I determine those dependencies on any given SWF file at runtime without having to resort to the link report?  AFAIK, there&#8217;s no way to determine this without the link report.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-18">
+			<img alt="" src="https://secure.gravatar.com/avatar/71ec7895cada78741057c644d858b0e3?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/71ec7895cada78741057c644d858b0e3?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Jeff</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-18" title="">October 13th, 2010 at 21:32</a> </small>
+
+			<p>Nevermind &#8211; I&#8217;ve found the swfdump tool that&#8217;s provided with the Flex SDK which does exactly what I need.  That is, you can determine which classes any given .swf file depends on.</p>
+
+		</li>
+
+	
+	
+		<li id="comment-19">
+			<img alt="" src="https://secure.gravatar.com/avatar/a6af5029c458e057a2f57a4d6d05a7a2?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/a6af5029c458e057a2f57a4d6d05a7a2?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://gudubeth.net/" rel="external nofollow ugc" class="url">gudubeth</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-19" title="">March 6th, 2011 at 20:57</a> </small>
+
+			<p>Thank you very much, this helped me a lot.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-21">
+			<img alt="" src="https://secure.gravatar.com/avatar/73e204959463d8996067e7e0c975f922?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/73e204959463d8996067e7e0c975f922?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Jgrant</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-21" title="">April 5th, 2011 at 01:38</a> </small>
+
+			<p>Hey there, this is exactly what I&#8217;ve been looking for but I have a question. After you&#8217;ve downloaded the swf and gotten the array of the class names how do you instantiate the classes from the loaded swf? Since it was downloaded as a ByteArray instead of just a normal swf is it even possible? Do you have to download it again in the correct format?</p>
+
+		</li>
+
+	
+	
+		<li id="comment-22">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-22" title="">April 5th, 2011 at 07:28</a> </small>
+
+			<p>@Jgrant: You can create a loader by using Loader.loadBytes().<br>
+That&#8217;s what I&#8217;m doing in the ExampleMain.as file in the onSwfLoaded function, check it out.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-23">
+			<img alt="" src="https://secure.gravatar.com/avatar/73e204959463d8996067e7e0c975f922?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/73e204959463d8996067e7e0c975f922?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Jgrant</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-23" title="">April 5th, 2011 at 22:34</a> </small>
+
+			<p>Thanks for the help, I got it working in the normal case but I can&#8217;t get working in a certain situation. When loading a SWF compiled normally from an FLA it works fine, but if I try to just export a single MovieClip into a swf and try to load that and find the class name it fails saying &#8220;Record header length too big.&#8221;.</p>
+<p>The main reason for doing this is because I want to split up assets into multiple SWF files but they are all stored in a single FLA, because making a new FLA for each asset swf would just be stupid.</p>
+
+		</li>
+
+	
+	
+		<li id="comment-24">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-24" title="">April 6th, 2011 at 08:28</a> </small>
+
+			<p>I haven&#8217;t encountered that&#8230; the only thing I can recommend is to make sure your fla or swf file isn&#8217;t corrupted.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1460">
+			<img alt="" src="https://secure.gravatar.com/avatar/2835c393f6b34d1b64f70f0cac4d5f35?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/2835c393f6b34d1b64f70f0cac4d5f35?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Joshua</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1460" title="">April 27th, 2012 at 23:01</a> </small>
+
+			<p>A little late to this party but this tool is incredible. Being able to examine loaded class names at runtime is amazing. Thanks much!</p>
+
+		</li>
+
+	
+	
+		<li id="comment-1559">
+			<img alt="" src="https://secure.gravatar.com/avatar/01756971d8dddb5b0c32d2d9ef8e76ba?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/01756971d8dddb5b0c32d2d9ef8e76ba?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Dylon</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1559" title="">June 8th, 2012 at 02:41</a> </small>
+
+			<p>Do we have something like this supports AS2?</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1778">
+			<img alt="" src="https://secure.gravatar.com/avatar/80963070aff5f833ba851f327f5bf450?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/80963070aff5f833ba851f327f5bf450?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>dudu</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1778" title="">August 23rd, 2012 at 18:50</a> </small>
+
+			<p>This source code doesn&#8217;t work with this exemple</p>
+<p>var traits:Array = SwfClassExplorer.getClassNames(systemManager.loaderInfo.bytes);</p>
+
+		</li>
+
+	
+	
+		<li id="comment-2166">
+			<img alt="" src="https://secure.gravatar.com/avatar/624770c7818ec2601fd093b2ebc5c15e?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/624770c7818ec2601fd093b2ebc5c15e?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Grigori</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-2166" title="">January 18th, 2013 at 06:27</a> </small>
+
+			<p>Thanks a lot. Your code really helped me. Great job !!!</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-2234">
+			<img alt="" src="https://secure.gravatar.com/avatar/8f5fb007b6ba1e73496b3e8211354417?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/8f5fb007b6ba1e73496b3e8211354417?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>John</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-2234" title="">January 30th, 2013 at 19:59</a> </small>
+
+			<p>Guys, did anyone noticed some problems when you have tweens in library, is there a fix for that so i dont need to remove those tweens?</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+	
+	</div>
+
+<hr>
+<div id="footer">
+</div>
+</div>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js?ver=5.8.6" id="wp-embed-js"></script>
+</body>
+</html>

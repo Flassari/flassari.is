@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="The works and thoughts of a game programmer">
+
+<title>Flassari.is  &raquo; Unity: Is mouse (or any coordinates) within UI element&#8217;s rect</title>
+
+<link rel="stylesheet" href="/wp-content/themes/flassari/style.css" type="text/css" media="screen">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/swfobject.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shCore.css">
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shThemeDefault.css">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shCore.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushAS3.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushXml.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushPhp.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushCpp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"httpsflassari.is\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.8.6" type="text/css" media="all">
+<meta name="generator" content="WordPress 5.8.6">
+<link rel="canonical" href="/2015/03/unity-is-mouse-or-any-coordinates-within-ui-elements-rect/">
+<link rel="shortlink" href="/?p=600">
+<script type="text/javascript" src="/wp-includes/js/tw-sack.min.js?ver=1.6.1" id="sack-js"></script>
+</head>
+<body>
+
+
+<div id="page">
+<div id="header">
+	<a href="/"><h1>Flassari.is</h1></a>
+</div>
+<hr>
+
+
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="/2015/01/unity-getting-screen-size-in-units-2d/" rel="prev">Unity: Getting screen size in units (2D)</a>
+</div>
+			<div class="alignright">
+<a href="/2015/10/remove-boo-and-unityscript-references-from-unity-projects/" rel="next">Remove Boo and UnityScript references from Unity projects.</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-600">
+			<h2>Unity: Is mouse (or any coordinates) within UI element&#8217;s rect</h2>
+
+			<div class="entry">
+				<p>Here&#8217;s a quick way to check if the mouse or any other coordinates are within any UI object&#8217;s boundaries.</p>
+<p>This method doesn&#8217;t use raycast so it ignores all overlapping objects, it works just like ActionScript&#8217;s object.HitTest(coords) function.</p>
+<pre class="brush: c">public bool AreCoordsWithinUiObject(Vector2 coords, GameObject gameObj)
+{
+	Vector2 localPos = gameObj.transform.InverseTransformPoint(coords);
+	return ((RectTransform) gameObj.transform).rect.Contains(localPos);
+}
+
+// Example usage
+bool isMouseOverIcon = AreCoordsWithinGameObject(Input.mousePosition, _myUiIcon);</pre>
+
+								<p>Tags: <a href="/tag/2d-2/" rel="tag">2d</a>, <a href="/tag/bounds/" rel="tag">bounds</a>, <a href="/tag/hittest/" rel="tag">HitTest</a>, <a href="/tag/mouse/" rel="tag">mouse</a>, <a href="/tag/rect/" rel="tag">rect</a>, <a href="/tag/transform/" rel="tag">transform</a>, <a href="/tag/unity-2/" rel="tag">unity</a></p>
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on Monday, March 30th, 2015 at 13:32						and is filed under <a href="/category/unity/2d/" rel="category tag">2D</a>, <a href="/category/unity/ui/" rel="category tag">UI</a>, <a href="/category/unity/" rel="category tag">Unity</a>.
+						<br><br>
+						The website has been archived and no new comments can be posted.
+					</small>
+				</p>
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">2 Responses to &#8220;Unity: Is mouse (or any coordinates) within UI element&#8217;s rect&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-7571">
+			<img alt="" src="https://secure.gravatar.com/avatar/?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo avatar-default" height="32" width="32" loading="lazy">			<cite>Random Unity Hobbyist</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-7571" title="">June 25th, 2016 at 13:55</a> </small>
+
+			<p>Just what I was googling for. Thank you internet stranger!</p>
+
+		</li>
+
+	
+	
+		<li id="comment-8246">
+			<img alt="" src="https://secure.gravatar.com/avatar/?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo avatar-default" height="32" width="32" loading="lazy">			<cite><a href="http://www.TauCetiLabs.com/" rel="external nofollow ugc" class="url">KnightOwl</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-8246" title="">June 10th, 2018 at 07:58</a> </small>
+
+			<p>Thanks for this, it works for 3D as well.  I&#8217;m using it to check where a UI item is being &#8216;dragged&#8217; and checking if there is another specific UI &#8216;slot&#8217; element underneath:</p>
+<p>bool slotted = false;<br>
+foreach (MaterialSinkSlot slot in slots)<br>
+{<br>
+    Vector2 localPoint = slot.transform.InverseTransformPoint(transform.position); //transform.position is a Vector3, z-coord is lost when converting to Vector2<br>
+    if ((slot.transform as RectTransform).rect.Contains(localPoint))<br>
+    {<br>
+        slot.Accept(this);<br>
+        slotted = true;<br>
+        break;<br>
+    }<br>
+}</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+	
+	</div>
+
+<hr>
+<div id="footer">
+</div>
+</div>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js?ver=5.8.6" id="wp-embed-js"></script>
+</body>
+</html>

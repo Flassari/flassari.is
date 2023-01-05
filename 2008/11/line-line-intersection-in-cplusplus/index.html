@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="The works and thoughts of a game programmer">
+
+<title>Flassari.is  &raquo; Line-Line Intersection in C++</title>
+
+<link rel="stylesheet" href="/wp-content/themes/flassari/style.css" type="text/css" media="screen">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/swfobject.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shCore.css">
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shThemeDefault.css">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shCore.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushAS3.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushXml.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushPhp.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushCpp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"httpsflassari.is\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.8.6" type="text/css" media="all">
+<meta name="generator" content="WordPress 5.8.6">
+<link rel="canonical" href="/2008/11/line-line-intersection-in-cplusplus/">
+<link rel="shortlink" href="/?p=41">
+<script type="text/javascript" src="/wp-includes/js/tw-sack.min.js?ver=1.6.1" id="sack-js"></script>
+</head>
+<body>
+
+
+<div id="page">
+<div id="header">
+	<a href="/"><h1>Flassari.is</h1></a>
+</div>
+<hr>
+
+
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="/2008/07/swf-class-explorer-for-as3/" rel="prev">Swf Class Explorer for AS3</a>
+</div>
+			<div class="alignright">
+<a href="/2009/02/swf-metadata-in-pure-as3-projects/" rel="next">SWF metadata in pure AS3 projects</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-41">
+			<h2>Line-Line Intersection in C++</h2>
+
+			<div class="entry">
+				<p></p>
+<center><img loading="lazy" src="/wp-content/uploads/2008/11/linesect.png" alt="Line line intersection function explanation" title="linesect" width="259" height="134" class="size-full wp-image-71"></center>
+<p>I&#8217;ve just been tasked with creating a function to get the intersection of two lines.<br>
+With the help of equations from Wolfram Mathworld I created this nifty function:</p>
+<pre class="brush: cpp">Point* intersection(Point p1, Point p2, Point p3, Point p4) {
+	// Store the values for fast access and easy
+	// equations-to-code conversion
+	float x1 = p1.x, x2 = p2.x, x3 = p3.x, x4 = p4.x;
+	float y1 = p1.y, y2 = p2.y, y3 = p3.y, y4 = p4.y;
+
+	float d = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4);
+	// If d is zero, there is no intersection
+	if (d == 0) return NULL;
+
+	// Get the x and y
+	float pre = (x1*y2 - y1*x2), post = (x3*y4 - y3*x4);
+	float x = ( pre * (x3 - x4) - (x1 - x2) * post ) / d;
+	float y = ( pre * (y3 - y4) - (y1 - y2) * post ) / d;
+
+	// Check if the x and y coordinates are within both lines
+	if ( x < min(x1, x2) || x > max(x1, x2) ||
+		x < min(x3, x4) || x > max(x3, x4) ) return NULL;
+	if ( y < min(y1, y2) || y > max(y1, y2) ||
+		y < min(y3, y4) || y > max(y3, y4) ) return NULL;
+
+	// Return the point of intersection
+	Point* ret = new Point();
+	ret->x = x;
+	ret->y = y;
+	return ret;
+}</pre>
+<p>Hope it will be to as good use to you as it is to me.</p>
+
+								
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on Monday, November 3rd, 2008 at 11:44						and is filed under <a href="/category/c/" rel="category tag">C++</a>, <a href="/category/math/" rel="category tag">Math</a>.
+						<br><br>
+						The website has been archived and no new comments can be posted.
+					</small>
+				</p>
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">9 Responses to &#8220;Line-Line Intersection in C++&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-25">
+			<img alt="" src="https://secure.gravatar.com/avatar/68b2aced4dd0e13777e6d190356bd924?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/68b2aced4dd0e13777e6d190356bd924?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Phloxi</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-25" title="">May 25th, 2010 at 14:33</a> </small>
+
+			<p>You bloody beauty.</p>
+
+		</li>
+
+	
+	
+		<li id="comment-26">
+			<img alt="" src="https://secure.gravatar.com/avatar/b52bdf300641618801ce76e294935aea?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/b52bdf300641618801ce76e294935aea?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://eastgap.net/" rel="external nofollow ugc" class="url">BNelsey</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-26" title="">November 3rd, 2010 at 11:40</a> </small>
+
+			<p>still learning C++ and this definitely helped me, thanks a bunch!</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-27">
+			<img alt="" src="https://secure.gravatar.com/avatar/7da0d645dbd4c4a7256025196e571a55?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/7da0d645dbd4c4a7256025196e571a55?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://none/" rel="external nofollow ugc" class="url">Brian Washechek</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-27" title="">November 28th, 2010 at 23:55</a> </small>
+
+			<p>Here is mycode<br>
+bool intersection(float x1,float y1,<br>
+                  float x2,float y2,<br>
+                  float x3,float y3,<br>
+                  float x4,float y4) {<br>
+// Store the values for fast access and easy </p>
+<p>// equations-to-code conversion </p>
+<p>//float x1 = p1.x, x2 = p2.x, x3 = p3.x, x4 = p4.x;<br>
+//float y1 = p1.y, y2 = p2.y, y3 = p3.y, y4 = p4.y; </p>
+<p>float d = (x1 &#8211; x2) * (y3 &#8211; y4) &#8211; (y1 &#8211; y2) * (x3 &#8211; x4);<br>
+// If d is zero, there is no intersection </p>
+<p>if (d == 0) return false; </p>
+<p>// Get the x and y </p>
+<p>float pre = (x1*y2 &#8211; y1*x2), post = (x3*y4 &#8211; y3*x4); </p>
+<p>float x = ( pre * (x3 &#8211; x4) &#8211; (x1 &#8211; x2) * post ) / d;<br>
+float y = ( pre * (y3 &#8211; y4) &#8211; (y1 &#8211; y2) * post ) / d; </p>
+<p>// Check if the x and y coordinates are within both lines </p>
+<p>if ( x  max(x1, x2) ||<br>
+x  max(x3, x4) ) return false;<br>
+if ( y  max(y1, y2) ||<br>
+y  max(y3, y4) ) return false; </p>
+<p>// Return the point of intersection<br>
+//But I don&#8217;t care about &#8220;where&#8221;, only &#8220;if&#8221;<br>
+//Point* ret = new Point();<br>
+//ret-&gt;x = x;<br>
+//ret-&gt;y = y; </p>
+<p>return true;<br>
+}</p>
+<p>void fixCollisions()<br>
+{<br>
+  bigX=true;          //Here&#8217;s the problem. Not with the hit detection math, but with the display<br>
+                      //of results<br>
+   for (int i =0;i&lt;wallUbound;i++)<br>
+      {</p>
+<p>           if (intersection(FDX-cos(FDA),FDY-sin(FDA),   //&lt;&#8211;Right here<br>
+                           FDX+cos(FDA)+10,FDY+sin(FDA),<br>
+                           wallX[i]-cos(wallRot[i]),wallY[i]-sin(wallRot[i]),<br>
+                           wallX[i]+cos(wallRot[i]),wallY[i]+sin(wallRot[i])))<br>
+                           bigX=true;</p>
+<p>      }      </p>
+<p>}</p>
+
+		</li>
+
+	
+	
+		<li id="comment-28">
+			<img alt="" src="https://secure.gravatar.com/avatar/54a5454cd08932357efc2e0341b2986e?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/54a5454cd08932357efc2e0341b2986e?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Stephen</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-28" title="">March 8th, 2011 at 14:01</a> </small>
+
+			<p>Your test for x &amp; y being within the lines extent will often fail when one or other of the lines is either horizontal or vertical due to floating point rounding errors.</p>
+<p>A better test would be:<br>
+        if (x  (std::max(x1, x2) + epsilon) ||<br>
+            x  (std::max(x3, x4) + epsilon))<br>
+            return false;<br>
+        if (y  (std::max(y1, y2) + epsilon) ||<br>
+            y  (std::max(y3, y4) + epsilon))<br>
+            return false;</p>
+<p>Where epsilon is say, 1e-5.  This has the effect of testing against a line with a thickness of 2*epsilon accommodating any rounding errors.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-29">
+			<img alt="" src="https://secure.gravatar.com/avatar/54a5454cd08932357efc2e0341b2986e?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/54a5454cd08932357efc2e0341b2986e?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Stephen</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-29" title="">March 8th, 2011 at 14:17</a> </small>
+
+			<p>Lets try that again taking account of HTML :)</p>
+<p>if (x &lt; (min(x1, x2) &#8211; epsilon) ||<br>
+    x &gt; (max(x1, x2) + epsilon) ||<br>
+    x &lt; (min(x3, x4) &#8211; epsilon) ||<br>
+    x &gt; (max(x3, x4) + epsilon))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>
+if (y &lt; (min(y1, y2) &#8211; epsilon) ||<br>
+    y &gt; (max(y1, y2) + epsilon) ||<br>
+    y &lt; (min(y3, y4) &#8211; epsilon) ||<br>
+    y &gt; (max(y3, y4) + epsilon))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;</p>
+
+		</li>
+
+	
+	
+		<li id="comment-30">
+			<img alt="" src="https://secure.gravatar.com/avatar/d825254ecc58caa278f376b032d1cd6e?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/d825254ecc58caa278f376b032d1cd6e?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>varsha</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-30" title="">March 23rd, 2011 at 05:22</a> </small>
+
+			<p>@Brian Washechek<br>
+I ahve problen in C<br>
+I am trying to find intersection of multilines but failed it only gives 1st two </p>
+<p>how should i check for multiple line intersection if I return boolean status i can check but how to reshuffle the end point each time</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-139">
+			<img alt="" src="https://secure.gravatar.com/avatar/7da0d645dbd4c4a7256025196e571a55?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/7da0d645dbd4c4a7256025196e571a55?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Brian Washechek</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-139" title="">May 12th, 2011 at 02:55</a> </small>
+
+			<p>I don&#8217;t get it. Are you making fun of how little I know?</p>
+
+		</li>
+
+	
+	
+		<li id="comment-1345">
+			<img alt="" src="https://secure.gravatar.com/avatar/d4cf8a7be542bd45481a21ef9ca6036f?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/d4cf8a7be542bd45481a21ef9ca6036f?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>David Sopala</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1345" title="">March 22nd, 2012 at 01:57</a> </small>
+
+			<p>Don&#8217;t return a bool to check multiple line intersections, you MUST return a point.  When you have a point from the first two lines check to see if the point is valid for the 3,4,5&#8230;n lines if all return true then yes they all intersect.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-1941">
+			<img alt="" src="https://secure.gravatar.com/avatar/b86552519df7d9274a76fb0fd0d52bab?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/b86552519df7d9274a76fb0fd0d52bab?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Niko</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1941" title="">November 24th, 2012 at 21:36</a> </small>
+
+			<p>Thanks! AND Thanks Stephen!</p>
+<p>I was writing a path planning algorithm where the obstacles were all up-right rectangles so at least one of the two lines I passed to this function would always be either horizontal or vertical. It would have taken me way too long to figure out what was wrong if I didn&#8217;t see your post.</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+	
+	</div>
+
+<hr>
+<div id="footer">
+</div>
+</div>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js?ver=5.8.6" id="wp-embed-js"></script>
+</body>
+</html>

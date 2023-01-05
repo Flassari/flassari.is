@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="The works and thoughts of a game programmer">
+
+<title>Flassari.is  &raquo; Global error handling with Flash Player 10.1</title>
+
+<link rel="stylesheet" href="/wp-content/themes/flassari/style.css" type="text/css" media="screen">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/swfobject.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shCore.css">
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shThemeDefault.css">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shCore.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushAS3.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushXml.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushPhp.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushCpp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"httpsflassari.is\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.8.6" type="text/css" media="all">
+<meta name="generator" content="WordPress 5.8.6">
+<link rel="canonical" href="/2010/06/global-error-handling-with-flash-player-10-1/">
+<link rel="shortlink" href="/?p=304">
+<script type="text/javascript" src="/wp-includes/js/tw-sack.min.js?ver=1.6.1" id="sack-js"></script>
+</head>
+<body>
+
+
+<div id="page">
+<div id="header">
+	<a href="/"><h1>Flassari.is</h1></a>
+</div>
+<hr>
+
+
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="/2010/05/flv-and-f4v-files-not-found-on-iis/" rel="prev">Flv and f4v files not found on IIS</a>
+</div>
+			<div class="alignright">
+<a href="/2010/07/as3-with-keyword-and-casting/" rel="next">AS3 &#8220;with&#8221; keyword and casting</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-304">
+			<h2>Global error handling with Flash Player 10.1</h2>
+
+			<div class="entry">
+				<p>Since the official release of Flash Player 10.1 is out, now might be a good time to start implementing the global error handler.</p>
+<p>When this is written, flash builder 4 doesn&#8217;t have a native way that lets you use it, so we have to do a little mix.<strong> (Update: The update is out.)</strong><br>
+The global error handler works by adding an event to the uncaughtErrorEvents property of the loaderInfo of the application.<br>
+There are currently two methods of getting it to work.</p>
+<h3>Method 1 &#8211; The backwards compatible one:</h3>
+<p>Here the code doesn&#8217;t crash in flash player 9/10, but the error handling will only work in 10.1.</p>
+<pre class="brush: as3">if(loaderInfo.hasOwnProperty("uncaughtErrorEvents")){
+	IEventDispatcher(loaderInfo["uncaughtErrorEvents"]) .addEventListener("uncaughtError", uncaughtErrorHandler);
+}</pre>
+<pre class="brush: as3">private function uncaughtErrorHandler(e:Event):void {
+	trace("Global error:", e);
+}</pre>
+<h3>Method 2 &#8211; The type safe one:</h3>
+<p>Get the <a href="http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+4">Flex 4.1 SDK</a> if you haven&#8217;t already and choose that one as your project&#8217;s SDK.</p>
+<p>Now you can use the new global error handling like it was meant to be used:</p>
+<pre class="brush: as3">import flash.events.UncaughtErrorEvent;
+
+loaderInfo.uncaughtErrorEvents.addEventListener( UncaughtErrorEvent.UNCAUGHT_ERROR, uncaughtErrorHandler);
+
+private function uncaughtErrorHandler( e:UncaughtErrorEvent):void {
+	trace("Global error:", e);
+}</pre>
+
+								<p>Tags: <a href="/tag/10-1/" rel="tag">10.1</a>, <a href="/tag/4-1/" rel="tag">4.1</a>, <a href="/tag/as/" rel="tag">as</a>, <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/error/" rel="tag">error</a>, <a href="/tag/exception/" rel="tag">exception</a>, <a href="/tag/flash/" rel="tag">Flash</a>, <a href="/tag/flex/" rel="tag">Flex</a>, <a href="/tag/global/" rel="tag">global</a>, <a href="/tag/handler/" rel="tag">handler</a>, <a href="/tag/handling/" rel="tag">handling</a>, <a href="/tag/player/" rel="tag">player</a>, <a href="/tag/sdk/" rel="tag">SDK</a>, <a href="/tag/uncaught/" rel="tag">uncaught</a>, <a href="/tag/uncaughterror/" rel="tag">uncaughtError</a>, <a href="/tag/uncaughterrorhandler/" rel="tag">uncaughterrorhandler</a></p>
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on Wednesday, June 23rd, 2010 at 12:25						and is filed under <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a>, <a href="/category/flash/flex/" rel="category tag">Flex</a>.
+						<br><br>
+						The website has been archived and no new comments can be posted.
+					</small>
+				</p>
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">7 Responses to &#8220;Global error handling with Flash Player 10.1&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-102">
+			<img alt="" src="https://secure.gravatar.com/avatar/9b291726defbb52a99a0e4382e3c6175?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9b291726defbb52a99a0e4382e3c6175?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Dan Mitchell</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-102" title="">June 28th, 2010 at 20:55</a> </small>
+
+			<p>First, thanks for the post; second, I&#8217;ve spent the morning wrestling with this stuff, and can add a couple of extra notes:</p>
+<p>1. If you install SDK 4.1, that now points at Flash 10.1 / Air 2.0, so adding the &#8220;correct&#8221; code above to a new Flash Builder 4 project compiles and runs properly.</p>
+<p>2. However, it&#8217;s not trivial to add GEH to an existing project &#8212; anything that starts off with (say) </p>
+<p>&lt;mx:WindowedApplication<br>
+	xmlns:mx=&quot;<a href="http://www.adobe.com/2006/mxml&#038;quot" rel="nofollow ugc">http://www.adobe.com/2006/mxml&#038;quot</a>;</p>
+<p> won&#039;t work, because the 2006 in the namespace there winds up with uncaughtErrorEvents not existing (using either code sample), even when using the 10.1 runtime. Switching to the new namespace means a significant porting effort to handle all the changes;  blocks live somewhere else, WindowedApplication has different attributes, etc, etc.</p>
+
+		</li>
+
+	
+	
+		<li id="comment-103">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-103" title="">July 1st, 2010 at 14:13</a> </small>
+
+			<p>Thanks, I&#8217;ve updated the post to include the Flex 4.1 SDK. Much simpler =)<br>
+Too bad about the existing project thing..</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-104">
+			<img alt="" src="https://secure.gravatar.com/avatar/75972d18124abbbdf6ea84628cd74882?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/75972d18124abbbdf6ea84628cd74882?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Alex</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-104" title="">July 26th, 2010 at 09:23</a> </small>
+
+			<p>Thanks for the post.</p>
+<p>We&#8217;re trying unsuccessfully to get global exception handling to work with 10.1 AND not force the user to upgrade from flash player 9.</p>
+<p>1. we have a hello world app which when you click a button throws an exception<br>
+2. we have declared the event listener using the following:<br>
+ if (loaderInfo.hasOwnProperty(&#8220;uncaughtErrorEvents&#8221;))<br>
+                IEventDispatcher(loaderInfo[&#8220;uncaughtErrorEvents&#8221;]).addEventListener(&#8220;uncaughtError&#8221;, uncaughtErrorHandler);</p>
+<p>If we target the compiler to flash player 9.0.124 &#8211; then when running with 10.1 &#8211; no listener ever gets added</p>
+<p>If we target the compiler to flash player 10.x &#8211; then we get the error event but any 9.0.124 user must upgrade to 10</p>
+<p>Do you know what we&#8217;re doing wrong? I don&#8217;t understand why you&#8217;d need to do step 2 (your method 1) above if it couldn&#8217;t be backwards compatible. Is it backwards compatible to 10.0 only? not 9.x?</p>
+
+		</li>
+
+	
+	
+		<li id="comment-105">
+			<img alt="" src="https://secure.gravatar.com/avatar/6e0154441e7aade13253777094022a3b?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/6e0154441e7aade13253777094022a3b?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Eyal</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-105" title="">September 12th, 2010 at 14:40</a> </small>
+
+			<p>Thanks for the post.<br>
+I tried several methods but I couldn&#8217;t get the GEH to work with Flex SDK 3.x (even when I compile it with 10.1). It only works when I use SDK 4.1 and set the compiler to 10.1.</p>
+<p>I opened a JIRA bug:<br>
+<a href="http://bugs.adobe.com/jira/browse/FP-5349" rel="nofollow ugc">http://bugs.adobe.com/jira/browse/FP-5349</a></p>
+<p>And the response was that this is a SDK 4 feature. Is this true? Do I have to upgrade to Flex 4.1 to use the GEH?</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-106">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-106" title="">September 12th, 2010 at 15:26</a> </small>
+
+			<p>You might have to target Flash Player 10.1 in the compiler settings, even though you&#8217;re using an older Flex SDK.</p>
+
+		</li>
+
+	
+	
+		<li id="comment-107">
+			<img alt="" src="https://secure.gravatar.com/avatar/658827acbb92f67ed85279437a6201af?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/658827acbb92f67ed85279437a6201af?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://blog.guya.net/" rel="external nofollow ugc" class="url">guya</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-107" title="">September 13th, 2010 at 09:36</a> </small>
+
+			<p>Eyal,</p>
+<p>I&#8217;ve managed to make it work on Flex 3.x without using RSL, trying to figure how to make it work with RSL</p>
+<p><a href="http://blog.guya.net/2010/09/13/flash-player-10-1-global-error-handling-examples-and-the-flex-3-x-issue/" rel="nofollow ugc">http://blog.guya.net/2010/09/13/flash-player-10-1-global-error-handling-examples-and-the-flex-3-x-issue/</a></p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-108">
+			<img alt="" src="https://secure.gravatar.com/avatar/b4d5ab77fcf7f34fb69b906d818ada04?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/b4d5ab77fcf7f34fb69b906d818ada04?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://blog.antoniobrandao.com/" rel="external nofollow ugc" class="url">antonio brandao</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-108" title="">December 28th, 2010 at 15:49</a> </small>
+
+			<p>Error #1014: Class flash.events::UncaughtErrorEvent could not be found.</p>
+<p>versions:<br>
+&#8211; Adobe AIR 2.0.2 SDK<br>
+&#8211; Flex SDK 4.1<br>
+&#8211; Flash Player 10, or 10.1</p>
+<p>using Flashdevelop, compiling without IDE</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+	
+	</div>
+
+<hr>
+<div id="footer">
+</div>
+</div>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js?ver=5.8.6" id="wp-embed-js"></script>
+</body>
+</html>

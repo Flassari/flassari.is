@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="The works and thoughts of a game programmer">
+
+<title>Flassari.is  &raquo; The OR ( || ) operator in AS3</title>
+
+<link rel="stylesheet" href="/wp-content/themes/flassari/style.css" type="text/css" media="screen">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/swfobject.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shCore.css">
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shThemeDefault.css">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shCore.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushAS3.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushXml.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushPhp.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushCpp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"httpsflassari.is\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.8.6" type="text/css" media="all">
+<meta name="generator" content="WordPress 5.8.6">
+<link rel="canonical" href="/2010/09/the-or-operator-in-as3/">
+<link rel="shortlink" href="/?p=351">
+<script type="text/javascript" src="/wp-includes/js/tw-sack.min.js?ver=1.6.1" id="sack-js"></script>
+</head>
+<body>
+
+
+<div id="page">
+<div id="header">
+	<a href="/"><h1>Flassari.is</h1></a>
+</div>
+<hr>
+
+
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="/2010/08/flash-debug-player-crashing-firefox/" rel="prev">Flash Debug Player crashing Firefox</a>
+</div>
+			<div class="alignright">
+<a href="/2010/11/preloader-without-a-loader-swf-in-as3/" rel="next">Preloader without a loader-swf in AS3</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-351">
+			<h2>The OR ( || ) operator in AS3</h2>
+
+			<div class="entry">
+				<p>Here&#8217;s a quick tip: the OR operator ( || ) in AS3 does not return true if either condition evaluates to true; it returns the <strong>actual value</strong> of the first condition to evaluate to true.</p>
+<p>What does that mean? Lets try an example:<br>
+This statement:</p>
+<pre class="brush: as3">trace ( "foo" || "bar" );</pre>
+<p>will trace out the string &#8220;foo&#8221;, not &#8220;true&#8221; (in an if statement &#8220;foo&#8221; will evaluate to true).</p>
+<p>This statement:</p>
+<pre class="brush: as3">trace ( undefined || false || "bar" );</pre>
+<p>will trace out the string &#8220;bar&#8221;.</p>
+<p>If no condition evaluates to true, it will return the last condition.</p>
+<pre class="brush: as3">trace ( false || undefined || 0 || "" || NaN || null );</pre>
+<p>will trace out &#8220;null&#8221;.</p>
+<p>This can be really handy when making sure variables are not uninitialized before using them.<br>
+Check out this example:</p>
+<pre class="brush: as3">function doSomething(arr:Array, data:Object, path:String):void {
+    this.args = arr || [];
+    this.dataObject = data || {};
+    this.dataUrl = path || "http://default.url";
+}</pre>
+<p>And even sexier (thanks <a href="http://www.tyroneneill.com/">MonkeyMagiic</a>):</p>
+<pre class="brush: as3">this.args ||= [];</pre>
+
+								<p>Tags: <a href="/tag/192/" rel="tag">||</a>, <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/conditials/" rel="tag">conditials</a>, <a href="/tag/flash/" rel="tag">Flash</a>, <a href="/tag/if/" rel="tag">if</a>, <a href="/tag/nan/" rel="tag">NaN</a>, <a href="/tag/null/" rel="tag">null</a>, <a href="/tag/operator/" rel="tag">operator</a>, <a href="/tag/or/" rel="tag">or</a>, <a href="/tag/or-operator/" rel="tag">or operator</a>, <a href="/tag/undefined/" rel="tag">undefined</a>, <a href="/tag/value/" rel="tag">value</a></p>
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on Tuesday, September 21st, 2010 at 12:45						and is filed under <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a>.
+						<br><br>
+						The website has been archived and no new comments can be posted.
+					</small>
+				</p>
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">4 Responses to &#8220;The OR ( || ) operator in AS3&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-117">
+			<img alt="" src="https://secure.gravatar.com/avatar/d67ae4191a7242521fdd57f85125ce2c?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/d67ae4191a7242521fdd57f85125ce2c?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Raj</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-117" title="">October 25th, 2010 at 05:07</a> </small>
+
+			<p>Very Helpful!!!!</p>
+
+		</li>
+
+	
+	
+		<li id="comment-315">
+			<img alt="" src="https://secure.gravatar.com/avatar/7d7ddda01d24a377e5429d3112eefe62?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/7d7ddda01d24a377e5429d3112eefe62?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.tyroneneill.com/" rel="external nofollow ugc" class="url">MonkeyMagiic</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-315" title="">August 8th, 2011 at 15:26</a> </small>
+
+			<p>It is indeed a very helpful operator, It might help that people know when dealing with Global/class variables you would: </p>
+<p>private var _myArray:Array;</p>
+<p>private function doSomething(index:int ) : void<br>
+{<br>
+   _myArray:Array ||= new Array();</p>
+<p>   _myArray.getItemAt( index);<br>
+}</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-321">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-321" title="">August 9th, 2011 at 13:49</a> </small>
+
+			<p>Oooooh thank you @MonkeyMagiic, that is dead sexy!</p>
+
+		</li>
+
+	
+	
+		<li id="comment-1233">
+			<img alt="" src="https://secure.gravatar.com/avatar/d89d81f673dac06b16cade5b4bf19954?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/d89d81f673dac06b16cade5b4bf19954?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://blog.mshams.ir/" rel="external nofollow ugc" class="url">SHAMS</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-1233" title="">March 3rd, 2012 at 04:58</a> </small>
+
+			<p>Nice post; i like handy tricks.</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+	
+	</div>
+
+<hr>
+<div id="footer">
+</div>
+</div>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js?ver=5.8.6" id="wp-embed-js"></script>
+</body>
+</html>

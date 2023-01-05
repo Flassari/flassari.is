@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="The works and thoughts of a game programmer">
+
+<title>Flassari.is  &raquo; Number Format &#8211; Thousand Separator in AS3</title>
+
+<link rel="stylesheet" href="/wp-content/themes/flassari/style.css" type="text/css" media="screen">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/swfobject.js"></script>
+
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shCore.css">
+<link type="text/css" rel="stylesheet" href="/wp-content/themes/flassari/styles/shThemeDefault.css">
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shCore.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushAS3.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushXml.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushPhp.js"></script>
+<script type="text/javascript" src="/wp-content/themes/flassari/js/shBrushCpp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="//s.w.org">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"httpsflassari.is\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.6"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.8.6" type="text/css" media="all">
+<meta name="generator" content="WordPress 5.8.6">
+<link rel="canonical" href="/2009/08/number-format-thousand-separator-in-as3/">
+<link rel="shortlink" href="/?p=166">
+<script type="text/javascript" src="/wp-includes/js/tw-sack.min.js?ver=1.6.1" id="sack-js"></script>
+</head>
+<body>
+
+
+<div id="page">
+<div id="header">
+	<a href="/"><h1>Flassari.is</h1></a>
+</div>
+<hr>
+
+
+
+	<div id="content" class="widecolumn">
+
+	
+		<div class="navigation">
+			<div class="alignleft">&laquo; <a href="/2009/05/load-font-dynamically-on-runtime/" rel="prev">Load font dynamically on runtime</a>
+</div>
+			<div class="alignright">
+<a href="/2009/10/profiling-as3flex-applications/" rel="next">Profiling AS3/Flex applications</a> &raquo;</div>
+		</div>
+
+		<div class="post" id="post-166">
+			<h2>Number Format &#8211; Thousand Separator in AS3</h2>
+
+			<div class="entry">
+				<p>Here&#8217;s a short number format function I wrote to easily paste in your code when needed. It&#8217;s really handy for currency formatting.<br>
+The first parameter (number:*) can be a Number, int, uint or a String class instance.<br>
+The last parameter (siStyle:Boolean) specifies whether to use the <a href="http://en.wikipedia.org/wiki/SI" target="_blank">International System of Units</a> or not. <a href="http://en.wikipedia.org/wiki/SI" target="_blank">SI units</a> have points between the thousands and a comma for the seperator (123.456.789,01). Putting siStyle as false reverses that behaviour (123,456,789.01).</p>
+<p>It&#8217;s really ugly by design since I wanted it to be a single, tiny function. There&#8217;s loads of prettier/faster code samples out there.</p>
+<pre class="brush: as">function numberFormat(number:*, maxDecimals:int = 2, forceDecimals:Boolean = false, siStyle:Boolean = false):String {
+    var i:int = 0, inc:Number = Math.pow(10, maxDecimals), str:String = String(Math.round(inc * Number(number))/inc);
+    var hasSep:Boolean = str.indexOf(".") == -1, sep:int = hasSep ? str.length : str.indexOf(".");
+    var ret:String = (hasSep && !forceDecimals ? "" : (siStyle ? "," : ".")) + str.substr(sep+1);
+    if (forceDecimals) for (var j:int = 0; j <= maxDecimals - (str.length - (hasSep ? sep-1 : sep)); j++) ret += "0";
+    while (i + 3 < (str.substr(0, 1) == "-" ? sep-1 : sep)) ret = (siStyle ? "." : ",") + str.substr(sep - (i += 3), 3) + ret;
+    return str.substr(0, sep - i) + ret;
+}</pre>
+
+								<p>Tags: <a href="/tag/as3/" rel="tag">AS3</a>, <a href="/tag/currency/" rel="tag">currency</a>, <a href="/tag/format/" rel="tag">format</a>, <a href="/tag/function/" rel="tag">function</a>, <a href="/tag/number/" rel="tag">number</a>, <a href="/tag/quick/" rel="tag">quick</a>, <a href="/tag/separator/" rel="tag">separator</a>, <a href="/tag/short/" rel="tag">short</a>, <a href="/tag/thousand/" rel="tag">thousand</a></p>
+				<p class="postmetadata alt">
+					<small>
+						This entry was posted
+												on Wednesday, August 12th, 2009 at 21:25						and is filed under <a href="/category/flash/as3/" rel="category tag">AS3</a>, <a href="/category/flash/" rel="category tag">Flash</a>.
+						<br><br>
+						The website has been archived and no new comments can be posted.
+					</small>
+				</p>
+			</div>
+		</div>
+
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">17 Responses to &#8220;Number Format &#8211; Thousand Separator in AS3&#8221;</h3>
+
+	<ol class="commentlist">
+
+	
+		<li class="alt" id="comment-57">
+			<img alt="" src="https://secure.gravatar.com/avatar/d2a2c5d507501f9e2578337116820351?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/d2a2c5d507501f9e2578337116820351?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Gustavo García</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-57" title="">October 9th, 2009 at 15:25</a> </small>
+
+			<p>I like your snippet, thank you. Only thing there&#8217;s an error which leads to one decimal place less than expected.<br>
+WRONG:<br>
+for (var j:int = 0; j &lt; maxDecimals &#8211; (str.length &#8211; sep); j++)<br>
+RIGHT:<br>
+for (var j:int = 0; j &lt; maxDecimals &#8211; (str.length &#8211; 1 &#8211; sep); j++)</p>
+
+		</li>
+
+	
+	
+		<li id="comment-58">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-58" title="">October 9th, 2009 at 18:06</a> </small>
+
+			<p>Aaah, you&#8217;re absolutely right! It&#8217;s fixed now.</p>
+<p>To hold onto compactness I changed</p>
+<pre class="brush: as">for (var j:int = 0; j < maxDecimals - (str.length - sep); j++)</pre>
+<p>to</p>
+<pre class="brush: as">for (var j:int = 0; j <= maxDecimals - (str.length - sep); j++)</pre>
+<p>Thanks for spotting that =)</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-59">
+			<img alt="" src="https://secure.gravatar.com/avatar/bf0b063620ef5e886f2bb6cae804e377?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/bf0b063620ef5e886f2bb6cae804e377?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://TKO.co.nz/" rel="external nofollow ugc" class="url">John</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-59" title="">October 20th, 2009 at 21:37</a> </small>
+
+			<p>You&#8217;ve also got the comma and decimal around the wrong way.</p>
+
+		</li>
+
+	
+	
+		<li id="comment-60">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-60" title="">October 21st, 2009 at 10:11</a> </small>
+
+			<p>No, that&#8217;s what the <strong>siStyle</strong> property is for, you can actually choose the metric SI style (default true because of majority) or non-SI style (false) that&#8217;s in use in <a href="http://en.wikipedia.org/wiki/SI" rel="nofollow">mostly Burma (Myanmar), Liberia, and the United States</a>.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-61">
+			<img alt="" src="https://secure.gravatar.com/avatar/997cec33a06cb5890f3ff0769f5a68c7?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/997cec33a06cb5890f3ff0769f5a68c7?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>nizzle</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-61" title="">October 31st, 2009 at 10:33</a> </small>
+
+			<p>Thanks, I was just looking for something like this. Nice code, also.</p>
+
+		</li>
+
+	
+	
+		<li id="comment-62">
+			<img alt="" src="https://secure.gravatar.com/avatar/3dc9f29b9558ae948e74144cc1b57522?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/3dc9f29b9558ae948e74144cc1b57522?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Torben</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-62" title="">November 20th, 2009 at 13:00</a> </small>
+
+			<p>I don&#8217;t see what was wrong with your original Deciaml code. When I test it your first line works &#8211; the second ads one decimal too many.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-63">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-63" title="">November 20th, 2009 at 13:31</a> </small>
+
+			<p>Torben, I found the error you were talking about; it only happened when you passed in whole numbers.<br>
+It&#8217;s been fixed now, thanks for spotting it =)</p>
+
+		</li>
+
+	
+	
+		<li id="comment-64">
+			<img alt="" src="https://secure.gravatar.com/avatar/3dc9f29b9558ae948e74144cc1b57522?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/3dc9f29b9558ae948e74144cc1b57522?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Torben</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-64" title="">November 24th, 2009 at 11:24</a> </small>
+
+			<p>Great, thanks Flassari</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-65">
+			<img alt="" src="https://secure.gravatar.com/avatar/6dc5c5a2a17bcdddb7ff89499dbd2ee9?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/6dc5c5a2a17bcdddb7ff89499dbd2ee9?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>DanielSig</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-65" title="">December 30th, 2009 at 16:55</a> </small>
+
+			<p>Hey, I added a little tweak of mine to your function. What it does is that it indents the returning string with indentUnit so that the length of the string minus decimals becomes forceLength.</p>
+<p>This can be useful when you intend to align a vertical list of numbers so that the decimal points are in a straight line.</p>
+<p>Note: unless you specify the forceLength parameter as a uint higher than 0, this function behaves just like the original function made by Flassari.</p>
+<pre class="brush: as">function numberFormat(number:*, maxDecimals:int = 2, forceDecimals:Boolean = false, siStyle:Boolean = true, forceLength:uint = 0, indentUnit:String = " "):String {
+	var i:int = 0, inc:Number = Math.pow(10, maxDecimals), str:String = String(Math.round(inc * Number(number))/inc), indent:String = "";
+	var hasSep:Boolean = str.indexOf(".") == -1, sep:int = hasSep ? str.length : str.indexOf(".");
+	var ret:String = (hasSep &amp;&amp; !forceDecimals ? "" : (siStyle ? "," : ".")) + str.substr(sep+1);
+	if (forceDecimals) for (var j:int = 0; j &lt;= maxDecimals - (str.length - (hasSep ? sep-1 : sep)); j++) ret += &quot;0&quot;;
+	while (i + 3 &lt; (str.substr(0, 1) == &quot;-&quot; ? sep-1 : sep)) ret = (siStyle ? &quot;.&quot; : &quot;,&quot;) + str.substr(sep - (i += 3), 3) + ret;
+	if(forceLength != 0) for(j = sep + i / 3; j &lt; forceLength; j++) indent += indentUnit;
+	return indent + str.substr(0, sep - i) + ret;
+}</pre>
+
+		</li>
+
+	
+	
+		<li id="comment-66">
+			<img alt="" src="https://secure.gravatar.com/avatar/a26e71d27854421947473e42b4545b40?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/a26e71d27854421947473e42b4545b40?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flale.com/" rel="external nofollow ugc" class="url">bractar</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-66" title="">April 15th, 2010 at 21:44</a> </small>
+
+			<p>nice functionality but I hate your formatting. It isn&#8217;t clear enough to be updated easily. You don&#8217;t need to show that you can program like a nasa guy when you give a function on the web. Most people who will use your function will be beginners&#8230;<br>
+But thank you for sharing it</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-67">
+			<img alt="" src="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/9bee4c3cbb5f7610b21d1583a21968bd?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.flassari.is/" rel="external nofollow ugc" class="url">Flassari</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-67" title="">April 15th, 2010 at 22:15</a> </small>
+
+			<p>The formatting was done on purpose. I know it&#8217;s massively compressed and horrible to read, but it&#8217;s supposed to be small and convenient to paste into timeline or code. There were other resources which had dedicated classes which are easily changeable and commented (like for beginners) at the time I made this (and still are), but I didn&#8217;t want a whole class when I just wanted something quick and small to insert into the timeline.<br>
+I also don&#8217;t recommend this code for mass number processing since it is not at all optimized for speed, only compactness.</p>
+
+		</li>
+
+	
+	
+		<li id="comment-68">
+			<img alt="" src="https://secure.gravatar.com/avatar/34f0f9dd36d97ce5a4bd87ccf1216209?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/34f0f9dd36d97ce5a4bd87ccf1216209?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Julianne Santos</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-68" title="">March 29th, 2011 at 01:06</a> </small>
+
+			<p>Hi Flassari!<br>
+You saved me a lot of time!<br>
+Many many thanks from Brasil!</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-132">
+			<img alt="" src="https://secure.gravatar.com/avatar/7ef664cdf8055e5761bca03a0c44c42d?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/7ef664cdf8055e5761bca03a0c44c42d?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.123flashgames.de/Brettspiele/2160/Muehle-Spiel" rel="external nofollow ugc" class="url">Gamefreak</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-132" title="">May 6th, 2011 at 11:55</a> </small>
+
+			<p>great function, thanks alot</p>
+
+		</li>
+
+	
+	
+		<li id="comment-559">
+			<img alt="" src="https://secure.gravatar.com/avatar/38f844917d674d5f1c7c1bddec845ab0?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/38f844917d674d5f1c7c1bddec845ab0?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Yu-Chung Chen</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-559" title="">October 18th, 2011 at 19:26</a> </small>
+
+			<p>works perfectly, thanks.</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-714">
+			<img alt="" src="https://secure.gravatar.com/avatar/d392f19af21de44f8d3da21a2bb4a7b6?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/d392f19af21de44f8d3da21a2bb4a7b6?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite><a href="http://www.wix.com/mgcool_mg/explotapotencial" rel="external nofollow ugc" class="url">Mgcool</a></cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-714" title="">November 16th, 2011 at 23:28</a> </small>
+
+			<p>This is exactly what i was looking for. Regards. MX</p>
+
+		</li>
+
+	
+	
+		<li id="comment-898">
+			<img alt="" src="https://secure.gravatar.com/avatar/ab9197f9a27555602a7dd4f6f9df0181?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/ab9197f9a27555602a7dd4f6f9df0181?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Gorjan</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-898" title="">December 9th, 2011 at 16:21</a> </small>
+
+			<p>Great stuff. Thanks for saving me some time when I had none :)</p>
+
+		</li>
+
+	
+	
+		<li class="alt" id="comment-955">
+			<img alt="" src="https://secure.gravatar.com/avatar/5b587a6bcb760ae84e4ffdc6b790f76e?s=32&#038;d=blank&#038;r=g" srcset="https://secure.gravatar.com/avatar/5b587a6bcb760ae84e4ffdc6b790f76e?s=64&#038;d=blank&#038;r=g 2x" class="avatar avatar-32 photo" height="32" width="32" loading="lazy">			<cite>Spiroszaf</cite> Says:
+						<br>
+
+			<small class="commentmetadata"><a href="#comment-955" title="">December 14th, 2011 at 14:43</a> </small>
+
+			<p>Hey! Thanks alot for sharing this. It helped me big time!</p>
+
+		</li>
+
+	
+	
+	</ol>
+
+ 
+	
+	</div>
+
+<hr>
+<div id="footer">
+</div>
+</div>
+<script type="text/javascript" src="/wp-includes/js/wp-embed.min.js?ver=5.8.6" id="wp-embed-js"></script>
+</body>
+</html>
